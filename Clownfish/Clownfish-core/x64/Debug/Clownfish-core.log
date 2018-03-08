@@ -1,0 +1,5 @@
+﻿  window.cpp
+c:\users\jannik\documents\visual studio 2017\projects\clownfish\clownfish-core\src\graphics\window.h(4): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "GL\glew.h": No such file or directory
+  main.cpp
+c:\users\jannik\documents\visual studio 2017\projects\clownfish\clownfish-core\src\graphics\window.h(4): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "GL\glew.h": No such file or directory
+  Code wird generiert...
