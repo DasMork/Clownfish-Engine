@@ -4,9 +4,6 @@
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
 
-
-
-
 namespace clownfish
 {
 namespace graphics
@@ -21,8 +18,10 @@ namespace graphics
 		const char *m_Title;
 		int m_Width, m_Height;
 		bool m_Closed;
-
-
+	/*	bool m_Keys[GLFW_KEY_LAST];
+		bool m_Buttons[GLFW_MOUSE_BUTTON_LAST];
+		double mx;
+		double my;*/
 
 	public:
 		Window(const char *m_title, int m_width, int m_height);

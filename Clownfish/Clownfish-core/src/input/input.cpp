@@ -9,13 +9,10 @@ namespace clownfish {
 		bool Input::m_Buttons[MAX_BUTTONS];
 		double Input::mx;
 		double Input::my;
-		GLFWwindow m_Window;
 
 
 		Input::Input()
 		{
-
-
 			for (int i = 0; i < MAX_KEYS; i++)
 			{
 				m_Keys[i] = false;
@@ -27,26 +24,23 @@ namespace clownfish {
 		}
 		Input::~Input() {}
 
-		bool Input::init()
-		{
-
-		
-		}
-	    bool Input::isKeyPressed(unsigned int keycode) const
+	    bool Input::GetKey(unsigned int keycode) const
 		{
 			if (keycode >= MAX_KEYS)
 				return false;
 
 			return m_Keys[keycode];
 		}
-		bool Input::isMouseButtonPressed(unsigned int keycode)const
+
+
+		bool Input::GetMouseButton(unsigned int keycode)const
 		{
 			if (keycode >= MAX_BUTTONS)
 				return false;
 
 			return m_Buttons[keycode];
 		}
-		void Input::getMousePosition(double& x, double& y)const
+		void Input::GetMousePosition(double& x, double& y)const
 		{
 			x = mx;
 			y = my;

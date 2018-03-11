@@ -17,23 +17,23 @@ namespace clownfish
 		class Input
 		{
 		private:
+
+		public:
 			static bool m_Keys[MAX_KEYS];
 			static bool m_Buttons[MAX_BUTTONS];
 			static double mx, my;
-			GLFWwindow *m_Window;
-
-		public:
 
 			Input();
 			~Input();
 
 
-			bool isKeyPressed(unsigned int keycode)const;
-			bool isMouseButtonPressed(unsigned int keycode) const;
-			void getMousePosition(double& x, double& y)const;
+			bool GetKey(unsigned int keycode)const;
+
+			bool GetMouseButton(unsigned int keycode) const;
+			void GetMousePosition(double& x, double& y)const;
 
 		private:
-			bool init();
+		//	bool init();
 	
 		};
 

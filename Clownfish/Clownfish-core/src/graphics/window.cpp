@@ -1,4 +1,5 @@
 #include "window.h"
+#include "..\input\input.h"
 #include <iostream>
 
 namespace clownfish {
@@ -14,7 +15,7 @@ namespace clownfish {
 			m_Title = title;
 			m_Width = width;
 			m_Height = height;
-
+		   
 			if (!init())
 				glfwTerminate();
 
@@ -94,7 +95,7 @@ namespace clownfish {
 		void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 		{
 			Window* win = (Window*)glfwGetWindowUserPointer(window);
-			win->m_Keys[key] = action == GLFW_PRESS;
+			input::Input::m_Keys[key] = action == GLFW_PRESS;
 
 
 		}
@@ -102,15 +103,15 @@ namespace clownfish {
 		{
 			Window* win = (Window*)glfwGetWindowUserPointer(window);
 			
-			win->m_Buttons[button] = action != GLFW_RELEASE;
+			input::Input::m_Buttons[button] = action != GLFW_RELEASE;
 
 
 		}
 		void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
 		{
 			Window* win = (Window*)glfwGetWindowUserPointer(window);
-			win->mx = xpos;
-			win->my = ypos;
+			input::Input::mx = xpos;
+			input::Input::my = ypos;
 
 		}
 
