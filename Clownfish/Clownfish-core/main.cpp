@@ -22,17 +22,18 @@ int main()
 	Input input;
 
 	//MAT4 TEST
-	mat4 position = mat4::translation(vec3(1,2,5));
+	mat4 position = mat4::translation(vec3(1, 2, 5));
 	LOG(position);
 
-	//SET BACKGROUND COLOUR
-	glClearColor(0.2f, 0.9f, 0.8f, 1.0f);
-	
-	
-	
-//SHADER
+	float Red = 0.0f;
+	float Green = 0.8f;
+	float Blue = 0.5f;
+
+
+
+	//SHADER
 	GLuint vbo;
-	GLfloat vertices[] = 
+	GLfloat vertices[] =
 	{
 		-0.5f, -0.5f, 0.0f,
 		-0.5f, 0.5f, 0.0f,
@@ -53,7 +54,7 @@ int main()
 
 	Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
 	shader.enable();
-	glUniformMatrix4fv(glGetUniformLocation(shader.m_ShaderID, "pr_matrix"), 1, GL_FALSE, ortho.elements);
+	//glUniformMatrix4fv(glGetUniformLocation(shader.m_ShaderID, "pr_matrix"), 1, GL_FALSE, ortho.elements);
 
 
 
@@ -65,11 +66,34 @@ int main()
 	{
 		window.clear();
 
-	
+		//SET BACKGROUND COLOUR
+		glClearColor(Red, Green, Blue, 1.0f);
+
 		//INPUTS
-		if(input.GetMouseButton(GLFW_MOUSE_BUTTON_1))
+		if (input.GetMouseButton(GLFW_MOUSE_BUTTON_1))
 		{
-			LOG("PRESSED Mouse Button 1");
+			//LOG("PRESSED Mouse Button 1");
+			Red += 0.001f;
+
+			if (Red > 1)
+			{
+				Red = 0;
+
+			}
+			Green += 0.001f;
+
+			if (Green > 1)
+			{
+				Green = 0;
+
+			}
+			Blue += 0.001f;
+
+			if (Blue > 1)
+			{
+				Blue = 0;
+
+			}
 		}
 		if (input.GetMouseButton(GLFW_MOUSE_BUTTON_2))
 		{

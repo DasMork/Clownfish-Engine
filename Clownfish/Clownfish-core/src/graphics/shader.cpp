@@ -44,6 +44,11 @@ namespace clownfish{namespace graphics
 				return 0;
 
 			}
+			else
+			{
+				std::cout << "Compiled vertex shader!" << std::endl;
+
+			}
 
 
 
@@ -61,6 +66,11 @@ namespace clownfish{namespace graphics
 				std::cout << "Failed to compile fragment shader!"<< std::endl << &error[0] << std::endl;
 				glDeleteShader(fragment);
 				return 0;
+			}
+			else
+			{
+				std::cout << "Compiled fragment shader!" << std::endl;
+
 			}
 
 			glAttachShader(program, vertex);
