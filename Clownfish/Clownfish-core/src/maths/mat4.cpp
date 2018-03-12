@@ -66,7 +66,7 @@ namespace clownfish {
 			mat4 result(1.0f);
 
 			result.elements[0 + 0 * 4] = 2.0f / (right - left);
-			result.elements[1 + 1 * 4] = 2.0f / (bottom - top);
+			result.elements[1 + 1 * 4] = 2.0f / (top - bottom);
 			result.elements[2 + 2 * 4] = 2.0f / (near - far);
 
 

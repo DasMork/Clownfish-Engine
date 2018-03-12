@@ -1,3 +1,4 @@
 ﻿  main.cpp
-c:\users\janni\documents\github\clownfish-engine\clownfish\clownfish-core\src\maths\maths_func.h(11): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
-  Clownfish-core.vcxproj -> C:\Users\janni\Documents\GitHub\Clownfish-Engine\Clownfish\Debug\Clownfish-core.exe
+c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\maths\maths_func.h(11): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
+  Clownfish-core.vcxproj -> C:\Users\Jannik\Documents\GitHub\Clownfish-Engine\Clownfish\Debug\Clownfish-core.exe
+  Clownfish-core.vcxproj -> C:\Users\Jannik\Documents\GitHub\Clownfish-Engine\Clownfish\Debug\Clownfish-core.pdb (Partial PDB)

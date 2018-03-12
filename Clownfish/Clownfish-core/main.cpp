@@ -3,6 +3,13 @@
 #include "src\input\input.h"
 #include "src\maths\maths.h"
 #include "src\graphics\shader.h"
+#include "src\graphics\buffers\buffer.h"
+#include "src\graphics\buffers\indexbuffer.h"
+#include "src\graphics\buffers/vertextarray.h"
+
+
+#include "src\graphics\Renderable2D.h"
+#include "src\graphics\simple2drenderer.h"
 
 
 #define LOGLN(x) std::cout << x;
@@ -18,46 +25,21 @@ int main()
 	using namespace maths;
 
 	//INITIALIZATION
-	Window window("Rectangle.exe", 800, 600);
+	Window window("Clownfish-Launcher", 960, 540);
 	Input input;
-
-	//MAT4 TEST
-	mat4 position = mat4::translation(vec3(1, 2, 5));
-	LOG(position);
-
-	float Red = 0.0f;
-	float Green = 0.8f;
-	float Blue = 0.5f;
-
+	Simple2DRenderer renderer;
 
 
 	//SHADER
-	GLuint vbo;
-	GLfloat vertices[] =
-	{
-		-0.5f, -0.5f, 0.0f,
-		-0.5f, 0.5f, 0.0f,
-		0.5f, 0.5f, 0.0f,
-		0.5f, 0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f,
-		-0.5f, -0.5f, 0.0f
-	};
-
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-	glEnableVertexAttribArray(0);
-
 	mat4 ortho = mat4::othographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
-
-
 	Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
 	shader.enable();
-	//glUniformMatrix4fv(glGetUniformLocation(shader.m_ShaderID, "pr_matrix"), 1, GL_FALSE, ortho.elements);
+	shader.setUniformMat4("pr_matrix", ortho);
 
 
 
+	//RENDERER
+	Renderable2D sprite(maths::vec3(0, 0, 0), maths::vec2(20, 10), maths::vec4(1, 0.5f, 0, 1), shader);
 
 
 
@@ -66,45 +48,34 @@ int main()
 	{
 		window.clear();
 
+
+		//LIGHT TO MOUSE
+		double x, y;
+		input.GetMousePosition(x, y);
+		shader.setUniform2f("light_pos", vec2((float)(x * 16.0f / 960.0f), (float)(9.0f - y * 9.0f / 540)));
+
+
+
 		//SET BACKGROUND COLOUR
-		glClearColor(Red, Green, Blue, 1.0f);
+		glClearColor(1, 1, 1, 1.0f);
 
 		//INPUTS
 		if (input.GetMouseButton(GLFW_MOUSE_BUTTON_1))
 		{
-			//LOG("PRESSED Mouse Button 1");
-			Red += 0.001f;
 
-			if (Red > 1)
-			{
-				Red = 0;
-
-			}
-			Green += 0.001f;
-
-			if (Green > 1)
-			{
-				Green = 0;
-
-			}
-			Blue += 0.001f;
-
-			if (Blue > 1)
-			{
-				Blue = 0;
-
-			}
+			LOG("PRESSED Mouse Button 1");
+		
 		}
 		if (input.GetMouseButton(GLFW_MOUSE_BUTTON_2))
 		{
 			LOG("PRESSED Mouse Button 2");
+
 		}
 
 
-		//DRAWRECTANGLE
-		glDrawArrays(GL_TRIANGLES, 0, 6);
-
-
+		//RENDERER
+		renderer.submit(&sprite);
+		renderer.flush();
 
 
 		window.update();
