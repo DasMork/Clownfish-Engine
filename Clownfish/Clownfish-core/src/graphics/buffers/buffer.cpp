@@ -14,6 +14,10 @@ namespace clownfish {
 		
 		}
 
+		Buffer::~Buffer()
+		{
+			glDeleteBuffers(1, &m_BufferID);
+		}
 
 		void Buffer::bind() const
 		{

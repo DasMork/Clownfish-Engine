@@ -2,6 +2,7 @@
 
 #include <deque>
 #include "renderer2d.h"
+#include "static_sprite.h"
 
 namespace clownfish {
 	namespace graphics
@@ -11,7 +12,7 @@ namespace clownfish {
 		{
 
 		private:
-			std::deque<const Renderable2D*> m_RenderQueue;
+			std::deque<const StaticSprite*> m_RenderQueue;
 
 		public:
 			virtual void submit(const Renderable2D* renderable) override;

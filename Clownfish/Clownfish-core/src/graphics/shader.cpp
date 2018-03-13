@@ -75,7 +75,6 @@ namespace clownfish{namespace graphics
 			else
 			{
 				std::cout << "Compiled fragment shader!" << std::endl;
-
 			}
 
 			glAttachShader(program, vertex);
@@ -120,7 +119,6 @@ namespace clownfish{namespace graphics
 	void Shader::setUniformMat4(const GLchar* name, const maths::mat4& matrix)
 	{
 		glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, matrix.elements);
-
 	}
 
 

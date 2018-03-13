@@ -1,4 +1,5 @@
 ﻿  main.cpp
 c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\maths\maths_func.h(11): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\main.cpp(111): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
   Clownfish-core.vcxproj -> C:\Users\Jannik\Documents\GitHub\Clownfish-Engine\Clownfish\Debug\Clownfish-core.exe
   Clownfish-core.vcxproj -> C:\Users\Jannik\Documents\GitHub\Clownfish-Engine\Clownfish\Debug\Clownfish-core.pdb (Partial PDB)
