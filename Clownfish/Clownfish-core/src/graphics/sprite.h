@@ -11,7 +11,6 @@ namespace clownfish {
 
 		public:
 			Sprite(float x, float y, float width, float height, const maths::vec4& color);
-		
 		};
 
 
