@@ -1,4 +1,5 @@
 #include "simple2drenderer.h"
+#include "Renderable2D.h"
 
 namespace clownfish {
 	namespace graphics

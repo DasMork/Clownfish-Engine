@@ -16,6 +16,6 @@ void main()
 {
 float intensity = 1/length(fs_in.position.xy-light_pos);
 //color = colour * intensity;
-color = fs_in.colour * intensity;
+color = fs_in.colour;// * intensity;
 
 }

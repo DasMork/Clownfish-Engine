@@ -4,6 +4,9 @@
 #include "buffers\indexbuffer.h"
 #include "buffers\vertextarray.h"
 #include "..\graphics\shader.h"
+#include "renderer2d.h"
+#include "Renderable2D.h"
+
 namespace clownfish {
 	namespace graphics
 	{
@@ -21,6 +24,8 @@ namespace clownfish {
 			maths::vec2 m_Size;
 			maths::vec4 m_Color;
 
+		protected:
+			Renderable2D() {  }
 		public:
 			Renderable2D(maths::vec3 position, maths::vec2 size, maths::vec4 color)
 				:m_Position(position), m_Size(size), m_Color(color)
@@ -31,7 +36,10 @@ namespace clownfish {
 			{
 
 			}
-
+			virtual void submit(Renderer2D* renderer) const
+			{
+				renderer->submit(this);
+			}
 
 
 			inline const maths::vec3& getPosition() const { return m_Position; }

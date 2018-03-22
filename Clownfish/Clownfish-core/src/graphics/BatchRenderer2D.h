@@ -3,6 +3,7 @@
 
 #include"renderer2d.h"
 #include "buffers\indexbuffer.h"
+#include "Renderable2D.h"
 namespace clownfish{ namespace graphics
 {
 
@@ -30,8 +31,8 @@ public:
 	BatchRenderer2D();
 	~BatchRenderer2D();
 
-	void begin();
-	void end();
+	void begin()override;
+	void end() override;
 
 	virtual void submit(const Renderable2D* renderable) override;
 	virtual void flush() override;

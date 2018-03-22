@@ -15,16 +15,21 @@
 #include "src\graphics\simple2drenderer.h"
 #include "src\graphics\BatchRenderer2D.h"
 
+#include "src\graphics\Renderable3D.h"
+#include "src\graphics\simple3drenderer.h"
 #include "src\graphics\sprite.h"
 #include "src\graphics\static_sprite.h"
-
+#include "src\graphics\layers\tilelayer.h"
 #include "src\utils\timer.h"
+#include "src\graphics\layers\group.h"
 
 #define LOGLN(x) std::cout << x;
 #define LOG(x) std::cout << x << std::endl;
 
 #define BATCH_RENDERER 1
-#define PONG_GAME 1
+#define PONG_GAME 0
+#define CUBE 0
+
 
 
 int main()
@@ -40,15 +45,49 @@ int main()
 	Input input;
 	Timer time, deltaTime;
 
+
+
+
+
 	float timer = 0;
 	unsigned int fps = 0;
 
 	//SHADER
 	mat4 ortho = mat4::othographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
-	Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
-	shader.enable();
-	shader.setUniformMat4("pr_matrix", ortho);
+	Shader* s = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
+	Shader* s2 = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
 
+	Shader& shader = *s;
+	Shader& UIShader = *s2;
+
+	shader.enable();
+	UIShader.enable();
+
+	shader.setUniformMat4("pr_matrix", ortho);
+	LOG(ortho);
+	TileLayer layer(&shader);
+	TileLayer UILayer(&UIShader);
+
+
+		Group* group = new Group(mat4::translation(vec3(-14,5,0)));
+
+
+		group->add(new Sprite(0, 0, 6, 3, vec4(1, 1, 1, 1)));
+		group->add(new Sprite(0.5f, 0.5f, 5, 2, vec4(1, 0,1, 1)));
+
+		UILayer.add(group);
+
+	float rotation = 0;
+
+#if CUBE
+	//3DRENDERER
+	Simple3DRenderer renderer3d;
+	Model Test(vec3(0, 0, 0), 1, vec4(1, 0, 1, 1), shader);
+
+
+
+
+#endif
 	//PONG
 	float x1 = 0, y1 = 2.5f, x2 = 15, y2 = 2.5f;
 	float Bx = 7.5f, By = 4;
@@ -67,64 +106,56 @@ int main()
 
 
 
-	std::vector<Renderable2D*> sprites;
-	//srand(time(NULL));
-
-#if BATCH_RENDERER 
-
 	//RENDERER
 	BatchRenderer2D renderer;
+	std::vector<Renderable2D*> sprites;
 
-	for (float y = 0; y < 9.0f; y += 0.05f)
+	for (float y = -9; y < 9.0f; y += 0.1f)
 	{
-		for (float x = 0; x < 16.0f; x += 0.05f)
+		for (float x = -16; x < 16.0f; x += 0.1f)
 		{
-			sprites.push_back(new Sprite(x, y, 0.04f, 0.04f, maths::vec4(1, rand() % 1000 / 1000.0f, 0, 1)));
+#if CUBE
 
-		}
-
-	}
-#else
-	//RENDERER
-	StaticSprite sprite(0, 1, 20, 10, maths::vec4(1, 0.5f, 1, 1), shader);
-	StaticSprite sprite2(0, 0, 20, 1, maths::vec4(0, 0, 1, 1), shader);
-	Simple2DRenderer renderer;
-	for (float y = 0; y < 9.0f; y += 0.05f)
-	{
-		for (float x = 0; x < 16.0f; x += 0.05f)
-		{
-			sprites.push_back(new StaticSprite(x, y, 0.04f, 0.04f, maths::vec4(1, rand() % 1000 / 1000.0f, 0, 1), shader));
-
-		}
-
-	}
+#else 
+			layer.add(new Sprite(x, y, 0.09f, 0.09f, maths::vec4(1, rand() % 1000 / 1000.0f, 0, 1)));
 #endif
 
+		}
+
+	}
 	//UPDATE
 	while (!window.closed())
 	{
 		deltaTime.reset();
 		window.clear();
+		rotation++;
 
+#if CUBE
+		//CUBE
+		shader.setUniformMat4("ml_matrix", mat4::rotation(rotation / 100, vec3(0, 1, 0)));
+		shader.setUniformMat4("vw_matrix", mat4::rotation(30, vec3(1, 0, 0)));
+		glClearColor(1, 1, 1, 1);
+		double a, b;
+		input.GetMousePosition(a, b);
+		if (input.GetMouseButton(GLFW_MOUSE_BUTTON_1))
+		{
+			shader.setUniformMat4("ml_matrix", mat4::rotation(a, vec3(0, 1, 0)));
+			shader.setUniformMat4("vw_matrix", mat4::rotation(b, vec3(1, 0, 0)));
+		}
+		renderer3d.submit(&Test);
 
-
+		renderer3d.flush();
+#endif
 		//LIGHT TO MOUSE
 		double x, y;
 		input.GetMousePosition(x, y);
 
-
-
+#if PONG_GAME
 		Sprite P1(0, y1, 1, 4, vec4(0, 0, 1, 1));
 		Sprite P2(15, y2, 1, 4, vec4(0, 0, 1, 1));
 		Sprite Ball(Bx, By, 1, 1, vec4(1, 1, 1, 1));
 
-
-
-		//SET BACKGROUND COLOUR
-		glClearColor(0, 0, 0, 1);
-
-#if PONG_GAME
-
+		shader.enable();
 		shader.setUniform2f("light_pos", vec2(Bx + 0.5f, By + 0.5f));
 
 		//PONG
@@ -221,22 +252,17 @@ int main()
 			Bx += ballSpeedX*0.01f;
 
 
-			}
+	}
 #else
+		shader.enable();
+		shader.setUniform2f("light_pos", vec2((float)(x * 32.0f / 960.0f - 16), (float)(9.0f - y * 18.0f / 540)));
 
-		shader.setUniform2f("light_pos", vec2((float)(x * 16.0f / 960.0f), (float)(9.0f - y * 9.0f / 540)));
+		UIShader.enable();
+		UIShader.setUniform2f("light_pos", vec2((float)(x * 32.0f / 960.0f - 16), (float)(9.0f - y * 18.0f / 540)));
 
 #endif
 
-#if BATCH_RENDERER
 
-		//RENDERER
-		renderer.begin();
-
-		for (int i = 0; i < sprites.size(); i++)
-		{
-			renderer.submit(sprites[i]);
-		}
 #if PONG_GAME
 		renderer.submit(&P1);
 		renderer.submit(&P2);
@@ -271,22 +297,13 @@ int main()
 			endGame = true;
 
 		}
+		renderer.flush();
 #endif
-		renderer.end();
-		renderer.flush();
-#else
-		//RENDERER
-		for (int i = 0; i < sprites.size(); i++)
-		{
-
-			renderer.submit(sprites[i]);
-		}
-
-		renderer.flush();
-#endif 
 
 
 
+		//layer.render();
+		UILayer.render();
 		window.update();
 		fps++;
 		if (time.elapsed() - timer > 1.0f)
@@ -299,6 +316,6 @@ int main()
 
 
 
-		}
+}
 	return 0;
-		}
+}

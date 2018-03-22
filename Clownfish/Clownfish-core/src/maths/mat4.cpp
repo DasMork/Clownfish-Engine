@@ -51,7 +51,40 @@ namespace clownfish {
 			memcpy(elements, data, 4 * 4 * sizeof(float));
 			return *this;
 		}
+
+
+		vec4 mat4::multiply(const vec4& other)   const
+		{
+			return vec4(
+				columns[0].x * other.x + columns[1].x * other.y + columns[2].x * other.z + columns[3].x * other.w,
+				columns[0].y * other.y + columns[1].y * other.y + columns[2].y * other.z + columns[3].y * other.w,
+				columns[0].z * other.z + columns[1].z * other.y + columns[2].z * other.z + columns[3].z * other.w,
+				columns[0].w * other.w + columns[1].w * other.y + columns[2].w * other.z + columns[3].w * other.w
+			);
+		}
+
+		vec3 mat4::multiply(const vec3& other) const
+		{
+			return vec3(
+				columns[0].x * other.x + columns[1].x * other.y + columns[2].x * other.z + columns[3].x,
+				columns[0].y * other.y + columns[1].y * other.y + columns[2].y * other.z + columns[3].y,
+				columns[0].z * other.z + columns[1].z * other.y + columns[2].z * other.z + columns[3].z
+			);
+		}
+
+
+
 		mat4 operator*(mat4 left, const mat4& right)
+		{
+			return left.multiply(right);
+
+		}
+		vec3 operator*(const mat4& left, const vec3& right)
+		{
+			return left.multiply(right);
+
+		}
+		vec4 operator*(const mat4& left, const vec4& right)
 		{
 			return left.multiply(right);
 
@@ -137,8 +170,8 @@ namespace clownfish {
 			result.elements[0 + 1 * 4] = x * y * omc - z * s;
 			result.elements[1 + 1 * 4] = y *omc + c;
 			result.elements[2 + 1 * 4] = y * z*omc + x *s;
-		
-		
+
+
 			result.elements[0 + 2 * 4] = x*z*omc + y*s;
 			result.elements[1 + 2 * 4] = y * z * omc - x *s;
 			result.elements[2 + 2 * 4] = z*omc + c;
