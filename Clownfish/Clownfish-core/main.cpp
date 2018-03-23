@@ -2,7 +2,6 @@
 #include <vector>
 #include <time.h>
 
-
 #include "src\graphics\window.h"
 #include "src\input\input.h"
 #include "src\maths\maths.h"
@@ -22,6 +21,7 @@
 #include "src\graphics\layers\tilelayer.h"
 #include "src\utils\timer.h"
 #include "src\graphics\layers\group.h"
+#include "src\graphics\texture.h"
 
 #define LOGLN(x) std::cout << x;
 #define LOG(x) std::cout << x << std::endl;
@@ -44,7 +44,7 @@ int main()
 	Window window("Clownfish-Launcher", 960, 540);
 	Input input;
 	Timer time, deltaTime;
-
+	Texture texture("test.png");
 
 
 
