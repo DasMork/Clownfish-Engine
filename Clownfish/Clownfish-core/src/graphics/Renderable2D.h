@@ -6,6 +6,7 @@
 #include "..\graphics\shader.h"
 #include "renderer2d.h"
 #include "Renderable2D.h"
+#include "texture.h"
 
 namespace clownfish {
 	namespace graphics
@@ -13,7 +14,7 @@ namespace clownfish {
 		struct VertexData
 		{
 			maths::vec3 vertex;
-			// maths::vec4 color;
+			maths::vec2 uv;
 			unsigned int color;
 		};
 
@@ -23,13 +24,19 @@ namespace clownfish {
 			maths::vec3 m_Position;
 			maths::vec2 m_Size;
 			maths::vec4 m_Color;
+			std::vector<maths::vec2> m_UV;
+//			Texture* m_Texture;
 
 		protected:
-			Renderable2D() {  }
+			Renderable2D() 
+			{
+				setUVDefaults();
+			}
 		public:
 			Renderable2D(maths::vec3 position, maths::vec2 size, maths::vec4 color)
 				:m_Position(position), m_Size(size), m_Color(color)
 			{
+				setUVDefaults();
 
 			}
 			~Renderable2D()
@@ -45,6 +52,18 @@ namespace clownfish {
 			inline const maths::vec3& getPosition() const { return m_Position; }
 			inline const maths::vec2& getSize() const { return m_Size; }
 			inline const maths::vec4& getColor() const { return m_Color; }
+			inline const std::vector<maths::vec2>& getUV() const { return m_UV; }
+
+		//	inline const GLuint getTID() const { return m_Texture == nullptr ? 0 : m_Texture->getID(); }
+
+		private:
+			void setUVDefaults()
+			{
+				m_UV.push_back(maths::vec2(0, 0));
+				m_UV.push_back(maths::vec2(0, 1));
+				m_UV.push_back(maths::vec2(1, 1));
+				m_UV.push_back(maths::vec2(1, 0));
+			}
 
 		};
 
