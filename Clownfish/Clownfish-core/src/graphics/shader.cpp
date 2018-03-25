@@ -10,6 +10,7 @@ namespace clownfish{namespace graphics
 		: m_VertPath(vertPath), m_FragPath(fragPath)
 	{
 		m_ShaderID = load();
+		 
 	}
 	Shader::~Shader()
 	{
@@ -94,6 +95,16 @@ namespace clownfish{namespace graphics
 	void Shader::setUniform1f(const GLchar* name, float value)
 	{
 		glUniform1f(getUniformLocation(name), value);
+	}
+	void Shader::setUniform1fv(const GLchar* name, float* value, int count)
+	{
+		glUniform1fv(getUniformLocation(name), count, value);
+	
+	}
+	void Shader::setUniform1iv(const GLchar* name, int* value, int count)
+	{
+		glUniform1iv(getUniformLocation(name), count, value);
+
 	}
 	void Shader::setUniform1i(const GLchar* name, int value)
 	{

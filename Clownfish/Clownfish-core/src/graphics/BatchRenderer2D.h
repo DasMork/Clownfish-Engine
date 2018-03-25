@@ -17,7 +17,8 @@ namespace clownfish{ namespace graphics
 
 #define SHADER_VERTEX_INDEX 0
 #define SHADER_UV_INDEX 1
-#define SHADER_COLOR_INDEX 2
+#define SHADER_TID_INDEX 2
+#define SHADER_COLOR_INDEX 3 
 
 	class BatchRenderer2D : public Renderer2D
 {

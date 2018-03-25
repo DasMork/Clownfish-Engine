@@ -8,70 +8,8 @@ namespace clownfish {
 			: Renderable3D(position, edgeLength, color), m_Shader(shader)
 		{
 			m_VertexArray = new VertexArray();
-			GLfloat vertices[] =
-			{
-				//Front
-				-1.0f,-1.0f,-1.0f,
-				-1.0f,-1.0f, 1.0f,
-				-1.0f, 1.0f, 1.0f,
-				1.0f, 1.0f,-1.0f,
-				-1.0f,-1.0f,-1.0f,
-				-1.0f, 1.0f,-1.0f,
-
-				1.0f,-1.0f, 1.0f,
-				-1.0f,-1.0f,-1.0f,
-				1.0f,-1.0f,-1.0f,
-				1.0f, 1.0f,-1.0f,
-				1.0f,-1.0f,-1.0f,
-				-1.0f,-1.0f,-1.0f,
-
-				-1.0f,-1.0f,-1.0f,
-				-1.0f, 1.0f, 1.0f,
-				-1.0f, 1.0f,-1.0f,
-				1.0f,-1.0f, 1.0f,
-				-1.0f,-1.0f, 1.0f,
-				-1.0f,-1.0f,-1.0f,
-
-				-1.0f, 1.0f, 1.0f,
-				-1.0f,-1.0f, 1.0f,
-				1.0f,-1.0f, 1.0f,
-				1.0f, 1.0f, 1.0f,
-				1.0f,-1.0f,-1.0f,
-				1.0f, 1.0f,-1.0f,
-
-				1.0f,-1.0f,-1.0f,
-				1.0f, 1.0f, 1.0f,
-				1.0f,-1.0f, 1.0f,
-				1.0f, 1.0f, 1.0f,
-				1.0f, 1.0f,-1.0f,
-				-1.0f, 1.0f,-1.0f,
-
-				1.0f, 1.0f, 1.0f,
-				-1.0f, 1.0f,-1.0f,
-				-1.0f, 1.0f, 1.0f,
-				1.0f, 1.0f, 1.0f,
-				-1.0f, 1.0f, 1.0f,
-				1.0f,-1.0f, 1.0f
-
-
-
-
-
-			};
 			int offset = 0;
-			GLushort indices[36];
-			for (int i = 0; i < 36; i += 6)
-			{
-				indices[i] = offset + 0;
-				indices[i + 1] = offset + 1;
-				indices[i + 2] = offset + 2;
 
-				indices[i + 3] = offset + 2;
-				indices[i + 4] = offset + 3;
-				indices[i + 5] = offset + 0;
-
-				offset += 4;
-			}
 
 
 			GLfloat colors[] =
@@ -87,40 +25,6 @@ namespace clownfish {
 				color.x - 1, color.y + 1, color.z, color.w,
 				color.x - 1, color.y + 1, color.z, color.w,
 
-				//color.x, color.y, color.z, color.w,
-				//color.x, color.y, color.z, color.w,
-				//color.x, color.y, color.z, color.w,
-				//color.x, color.y, color.z, color.w,
-
-				//color.x, color.y, color.z, color.w,
-				//color.x, color.y, color.z, color.w,
-				//color.x, color.y, color.z, color.w,
-				//color.x, color.y, color.z, color.w,
-
-				//color.x, color.y, color.z, color.w,
-				//color.x, color.y, color.z, color.w,
-				//color.x, color.y, color.z, color.w,
-				//color.x, color.y, color.z, color.w,
-
-				//color.x, color.y, color.z, color.w,
-				//color.x, color.y, color.z, color.w,
-				//color.x, color.y, color.z, color.w,
-				//color.x, color.y, color.z, color.w
-			};
-
-
-			GLfloat cubeVertices[] = {
-				-1.0, -1.0,  1.0,
-				1.0, -1.0,  1.0,
-				-1.0,  1.0,  1.0,
-				1.0,  1.0,  1.0,
-				-1.0, -1.0, -1.0,
-				1.0, -1.0, -1.0,
-				-1.0,  1.0, -1.0,
-				1.0,  1.0, -1.0,
-			};
-			GLushort cubeIndices[] = {
-				   0, 1, 2, 3, 7, 1, 5, 4, 7, 6, 2, 4, 0, 1
 			};
 
 			float r = edgeLength / 2;

@@ -15,6 +15,7 @@ namespace clownfish {
 		{
 			maths::vec3 vertex;
 			maths::vec2 uv;
+			float tid;
 			unsigned int color;
 		};
 
@@ -25,7 +26,7 @@ namespace clownfish {
 			maths::vec2 m_Size;
 			maths::vec4 m_Color;
 			std::vector<maths::vec2> m_UV;
-//			Texture* m_Texture;
+			Texture* m_Texture;
 
 		protected:
 			Renderable2D() 
@@ -48,13 +49,16 @@ namespace clownfish {
 				renderer->submit(this);
 			}
 
-
+			virtual void translate(maths::vec3 translation)
+			{
+				m_Position += translation;
+			}
 			inline const maths::vec3& getPosition() const { return m_Position; }
 			inline const maths::vec2& getSize() const { return m_Size; }
 			inline const maths::vec4& getColor() const { return m_Color; }
 			inline const std::vector<maths::vec2>& getUV() const { return m_UV; }
 
-		//	inline const GLuint getTID() const { return m_Texture == nullptr ? 0 : m_Texture->getID(); }
+			inline const GLuint getTID() const { return m_Texture == nullptr ? 0 : m_Texture->getID(); }
 
 		private:
 			void setUVDefaults()

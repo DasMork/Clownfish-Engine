@@ -2,6 +2,7 @@
 
 #include <string>
 #include <FreeImage.h>
+#include <iostream>
 
 namespace clownfish {
 
@@ -24,6 +25,7 @@ namespace clownfish {
 
 		
 		BYTE* result = FreeImage_GetBits(dib);
+
 		*width = FreeImage_GetWidth(dib);
 		*height = FreeImage_GetHeight(dib);
 
