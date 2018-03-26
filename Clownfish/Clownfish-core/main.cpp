@@ -53,7 +53,7 @@ int main()
 	float timer = 0;
 	unsigned int fps = 0;
 
-	float jump = 0.0001f;
+	float jump = 0.01;
 
 	GLint texIDs[] = 
 	{ 
@@ -63,10 +63,8 @@ int main()
 
 
 	//SHADER
-	mat4 ortho = mat4::othographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f);
 	shader.enable();
 	shader.setUniform1iv("textures", texIDs, 10);
-	shader.setUniformMat4("pr_matrix", ortho);
 	
 
 
@@ -88,17 +86,36 @@ int main()
 		}
 
 	}
-	Sprite* Logo = new Sprite(-8, -6.0f, 16, 9, "logo.png");
+	Sprite* Logo = new Sprite(-8, -6.0f,1, 1, "mario.png");
+	//Sprite* Kira = new Sprite(0, 0, 2, 2, "kira.png");
 
 
-	layer.add(new Sprite(-16, -9, 32, 18, "sea.png"));
-	layer.add(new Sprite(-7, 0 , 4, 6, "lantern.png"));
+	layer.add(new Sprite(-16, -9, 268, 18, "1-1.png"));
+	//layer.add(new Sprite(-7, 0 , 4, 6, "lantern.png"));
+	//layer.add(new Sprite(0, 0, 4, 4, "cube.png"));
+
 	layer.add(Logo);
+	float x = 16;
+	float x1 = -16;
 #endif
 	//UPDATE
 	while (!window.closed())
 	{
 		window.clear();
+		mat4 ortho = mat4::othographic(x1, x, -9.0f, 9.0f, -1.0f, 1.0f);
+		shader.setUniformMat4("pr_matrix", ortho);
+
+		if(input.GetKey(GLFW_KEY_D))
+		{
+		x += 0.1f;
+		x1 += 0.1f;
+		}
+
+		if (input.GetKey(GLFW_KEY_A))
+		{
+			x -= 0.1f;
+			x1 -= 0.1f;
+	}
 
 
 #if CUBE
