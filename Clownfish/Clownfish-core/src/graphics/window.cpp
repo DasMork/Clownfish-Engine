@@ -1,6 +1,7 @@
 #include "window.h"
 #include "..\input\input.h"
 #include <iostream>
+#include "fontmanager.h"
 
 namespace clownfish {
 	namespace graphics {
@@ -65,6 +66,8 @@ namespace clownfish {
 
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+			LoadStandardFonts();
 
 			return true;
 		}
@@ -135,6 +138,12 @@ namespace clownfish {
 
 		}
 
+		void Window::LoadStandardFonts()
+		{
+			FontManager::add(new Font("arial", "arial.ttf", 30));
+			FontManager::add(new Font("mario", "mario.ttf", 30));
+
+		}
 
 	}
 }

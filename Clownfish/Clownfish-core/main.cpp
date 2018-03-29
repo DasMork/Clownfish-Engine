@@ -24,11 +24,12 @@
 #include "src\graphics\texture.h"
 #include "src\graphics\label.h"
 
+#include "src\graphics\fontmanager.h"
+
 #define LOGLN(x) std::cout << x;
 #define LOG(x) std::cout << x << std::endl;
 
-#define CUBE 0
-#define LIGHTTOMOUSE 1
+#define LIGHTTOMOUSE 0
 
 
 
@@ -47,6 +48,9 @@ int main()
 	Shader* s = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
 	Shader& shader = *s;
 	TileLayer layer(&shader);
+
+
+
 
 	BatchRenderer2D renderer;
 	std::vector<Renderable2D*> sprites;
@@ -69,6 +73,8 @@ int main()
 	//SHADER
 	shader.enable();
 	shader.setUniform1iv("textures", texIDs, 10);
+	mat4 ortho = mat4::othographic(-16, 16, -9.0f, 9.0f, -1.0f, 1.0f);
+	shader.setUniformMat4("pr_matrix", ortho);
 
 	for (float y = -9; y < 9.0f; y++)
 	{
@@ -79,15 +85,14 @@ int main()
 
 		}
 		Sprite* Mario = new Sprite(-8, 10.7f, 1, 1.1f, "mario.png");
-		Label* fpstext = new Label(-15, 7, 0xffffffff, "Fps: ");
-		Label* text = new Label(11, 7, 0xffffffff, "Kira");
+		Label* fpstext = new Label("Fps: ", -15, 7,"arial", 0xffffffff);
+		Label* coinText = new Label("Coins: ", 10, 7, "mario", 0xffffffff);
+
 		Sprite* Background = new Sprite(-16, -9, 268, 18, "1-1.png");
-
-
 
 		layer.add(Background);
 		layer.add(fpstext);
-		layer.add(text);
+		layer.add(coinText);
 		layer.add(Mario);
 
 		float x = 16;
@@ -97,8 +102,6 @@ int main()
 		while (!window.closed())
 		{
 			window.clear();
-			mat4 ortho = mat4::othographic(x1, x, -9.0f, 9.0f, -1.0f, 1.0f);
-			shader.setUniformMat4("pr_matrix", ortho);
 
 			
 			if (Mario->getPosition().y > -6.7f)
@@ -145,6 +148,7 @@ int main()
 				fps = 0;
 			}
 		}
+		FontManager::clean();
 		return 0;
 	}
 }

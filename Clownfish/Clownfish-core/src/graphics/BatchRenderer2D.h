@@ -4,7 +4,7 @@
 #include"renderer2d.h"
 #include "buffers\indexbuffer.h"
 #include "Renderable2D.h"
-#include "..\..\ext\freetype-gl\freetype-gl.h"
+
 
 namespace clownfish{ namespace graphics
 {
@@ -48,7 +48,7 @@ public:
 
 	virtual void submit(const Renderable2D* renderable) override;
 	virtual void flush() override;
-	virtual void drawString(const std::string& text, const maths::vec3& position, unsigned int color)override;
+	virtual void drawString(const std::string& text, const Font& font, const maths::vec3& position, unsigned int color)override;
 
 private:
 	void init();

@@ -7,9 +7,9 @@ c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\g
 c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\Renderable2D.h(63): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
 LINK : warning LNK4098: Standardbibliothek "LIBCMT" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
   Code wird generiert.
-  7 of 1977 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
-    2 functions were new in current compilation
-    7 functions had inline decision re-evaluated but remain unchanged
+  1 of 2071 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Codegenerierung ist abgeschlossen.
 glew32s.lib(glew.obj) : warning LNK4099: PDB "vc120.pdb" wurde nicht mit "glew32s.lib(glew.obj)" oder an "C:\Users\Jannik\Documents\GitHub\Clownfish-Engine\Clownfish\Release\bin\vc120.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
   Clownfish-core.vcxproj -> C:\Users\Jannik\Documents\GitHub\Clownfish-Engine\Clownfish\Release\bin\Clownfish-core.exe
