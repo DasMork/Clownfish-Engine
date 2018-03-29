@@ -4,6 +4,8 @@
 #include"renderer2d.h"
 #include "buffers\indexbuffer.h"
 #include "Renderable2D.h"
+#include "..\..\ext\freetype-gl\freetype-gl.h"
+
 namespace clownfish{ namespace graphics
 {
 
@@ -30,7 +32,13 @@ private:
 	GLsizei m_IndexCount;
 	VertexData* m_Buffer;
 
+
 	std::vector<GLuint> m_TextureSlots;
+
+	ftgl::texture_atlas_t* m_FTAtlas;
+	ftgl::texture_font_t* m_FTFont;
+
+
 public:
 	BatchRenderer2D();
 	~BatchRenderer2D();
@@ -40,6 +48,8 @@ public:
 
 	virtual void submit(const Renderable2D* renderable) override;
 	virtual void flush() override;
+	virtual void drawString(const std::string& text, const maths::vec3& position, unsigned int color)override;
+
 private:
 	void init();
 

@@ -24,6 +24,8 @@ namespace clownfish {
 			
 			glBindTexture(GL_TEXTURE_2D, 0);
 
+			delete[] pixels;
+
 			return result;
 		}
 		void Texture::bind() const
