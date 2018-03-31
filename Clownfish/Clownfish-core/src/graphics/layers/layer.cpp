@@ -10,6 +10,14 @@ namespace clownfish {
 		{
 			m_Shader->enable();
 			m_Shader->setUniformMat4("pr_matrix", m_ProjectionMatrix);
+
+			GLint texIDs[32] =
+			{
+				0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23,24,25,26,27,28,29,30,31
+			};
+
+			m_Shader->setUniform1iv("textures", texIDs, 10);
+
 			m_Shader->disable();
 
 		}

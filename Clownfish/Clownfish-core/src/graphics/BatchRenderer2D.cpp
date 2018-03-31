@@ -90,7 +90,7 @@ namespace clownfish {
 
 				if (!found)
 				{
-					if (m_TextureSlots.size() >= 32)
+					if (m_TextureSlots.size() >= RENDERER_MAX_TEXTURES)
 					{
 						end();
 						flush();
@@ -101,25 +101,25 @@ namespace clownfish {
 				}
 			}
 
-			m_Buffer->vertex = m_TransformationStack.back().multiply(maths::vec3(position.x, position.y, position.z));
+			m_Buffer->vertex = m_TransformationStack.back().multiply(maths::vec3(position.x - size.x/2, position.y - size.y / 2, position.z));
 			m_Buffer->uv = uv[0];
 			m_Buffer->tid = ts;
 			m_Buffer->color = color;
 			m_Buffer++;
 
-			m_Buffer->vertex = m_TransformationStack.back().multiply(maths::vec3(position.x, position.y + size.y, position.z));
+			m_Buffer->vertex = m_TransformationStack.back().multiply(maths::vec3(position.x - size.x / 2, position.y + size.y/2, position.z));
 			m_Buffer->uv = uv[1];
 			m_Buffer->tid = ts;
 			m_Buffer->color = color;
 			m_Buffer++;
 
-			m_Buffer->vertex = m_TransformationStack.back().multiply(maths::vec3(position.x + size.x, position.y + size.y, position.z));
+			m_Buffer->vertex = m_TransformationStack.back().multiply(maths::vec3(position.x + size.x/2, position.y + size.y/2, position.z));
 			m_Buffer->uv = uv[2];
 			m_Buffer->tid = ts;
 			m_Buffer->color = color;
 			m_Buffer++;
 
-			m_Buffer->vertex = m_TransformationStack.back().multiply(maths::vec3(position.x + size.x, position.y, position.z));
+			m_Buffer->vertex = m_TransformationStack.back().multiply(maths::vec3(position.x + size.x/2, position.y - size.y / 2, position.z));
 			m_Buffer->uv = uv[3];
 			m_Buffer->tid = ts;
 			m_Buffer->color = color;
@@ -251,7 +251,7 @@ namespace clownfish {
 			glBindVertexArray(0);
 
 			m_IndexCount = 0;
-
+			m_TextureSlots.clear();
 		}
 	}
 

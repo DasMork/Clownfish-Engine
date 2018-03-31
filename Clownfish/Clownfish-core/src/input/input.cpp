@@ -30,7 +30,7 @@ namespace clownfish {
 		}
 		Input::~Input() {}
 
-		bool Input::GetKey(unsigned int keycode) const
+		bool Input::GetKey(unsigned int keycode)
 		{
 			if (keycode >= GLFW_KEY_LAST)
 				return false;
@@ -39,21 +39,21 @@ namespace clownfish {
 		}
 
 
-		bool Input::GetKeyDown(unsigned int keycode) const
+		bool Input::GetKeyDown(unsigned int keycode) 
 		{
 			if (keycode >= GLFW_KEY_LAST)
 				return false;
 
 			return m_KeyTyped[keycode];
 		}
-		bool Input::GetMouseButton(unsigned int keycode)const
+		bool Input::GetMouseButton(unsigned int keycode)
 		{
 			if (keycode >= GLFW_MOUSE_BUTTON_LAST)
 				return false;
 
 			return m_Buttons[keycode];
 		}
-		bool Input::GetMouseButtonDown(unsigned int keycode)const
+		bool Input::GetMouseButtonDown(unsigned int keycode)
 		{
 
 			if (keycode >= GLFW_MOUSE_BUTTON_LAST)
@@ -61,7 +61,7 @@ namespace clownfish {
 
 			return m_MouseClicked[keycode];
 		}
-		void Input::GetMousePosition(double& x, double& y)const
+		void Input::GetMousePosition(double& x, double& y)
 		{
 			x = mx;
 			y = my;

@@ -10,6 +10,13 @@ namespace clownfish {
 			m_Color = color;
 
 		}
+		Label::Label(std::string text, float x, float y, unsigned int color)
+			: Renderable2D(), text(text), position(m_Position), m_Font(FontManager::get("arial"))
+		{
+			m_Position = maths::vec3(x, y, 0);
+			m_Color = color;
+
+		}
 		Label::Label(std::string text, float x, float y, const std::string& font, unsigned int color)
 			: Renderable2D(), text(text), position(m_Position), m_Font(FontManager::get(font))
 		{
@@ -39,7 +46,7 @@ namespace clownfish {
 
 			if (m_Font == nullptr)
 			{
-				std::cout << "FONT NOT FOUND" << std::endl;
+				std::cout << "[GRAPHICS] FONT NOT FOUND" << std::endl;
 
 				m_Font = FontManager::get("arial");
 			}

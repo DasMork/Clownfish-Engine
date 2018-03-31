@@ -28,14 +28,13 @@ namespace clownfish
 			Input();
 			~Input();
 
+			static bool GetKey(unsigned int keycode);
+			static bool GetKeyDown(unsigned int keycode);
 
-			bool GetKey(unsigned int keycode)const;
-			bool GetKeyDown(unsigned int keycode)const;
+			static bool GetMouseButton(unsigned int keycode);
+			static bool GetMouseButtonDown(unsigned int keycode);
 
-			bool GetMouseButton(unsigned int keycode) const;
-			bool GetMouseButtonDown(unsigned int keycode) const;
-
-			void GetMousePosition(double& x, double& y)const;
+			static void GetMousePosition(double& x, double& y);
 
 		private:
 		//	bool init();

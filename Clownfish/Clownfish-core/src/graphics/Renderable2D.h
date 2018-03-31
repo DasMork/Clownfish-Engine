@@ -53,7 +53,10 @@ namespace clownfish {
 			{
 				m_Position += translation;
 			}
-
+			virtual void scale(maths::vec2 scale)
+			{
+				m_Size = scale;
+			}
 			void setColor(unsigned int color) { m_Color = color; }
 			void setColor(maths::vec4 color) 
 			{

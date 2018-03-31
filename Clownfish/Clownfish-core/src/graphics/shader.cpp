@@ -45,14 +45,14 @@ namespace clownfish{namespace graphics
 				glGetShaderiv(vertex, GL_INFO_LOG_LENGTH, &length);
 				std::vector<char> error(length);
 				glGetShaderInfoLog(vertex, length, &length, &error[0]);
-				std::cout << "Failed to compile vertex shader!" << std::endl << &error[0] << std::endl;
+				std::cout << "[SHADER] Failed to compile vertex shader!" << std::endl << &error[0] << std::endl;
 				glDeleteShader(vertex);
 				return 0;
 
 			}
 			else
 			{
-				std::cout << "Compiled vertex shader!" << std::endl;
+				std::cout << "[SHADER] Compiled vertex shader!" << std::endl;
 
 			}
 
@@ -69,13 +69,13 @@ namespace clownfish{namespace graphics
 				glGetShaderiv(fragment, GL_INFO_LOG_LENGTH, &length);
 				std::vector<char> error(length);
 				glGetShaderInfoLog(fragment, length, &length, &error[0]);
-				std::cout << "Failed to compile fragment shader!"<< std::endl << &error[0] << std::endl;
+				std::cout << "[SHADER] Failed to compile fragment shader!"<< std::endl << &error[0] << std::endl;
 				glDeleteShader(fragment);
 				return 0;
 			}
 			else
 			{
-				std::cout << "Compiled fragment shader!" << std::endl;
+				std::cout << "[SHADER] Compiled fragment shader!" << std::endl;
 			}
 
 			glAttachShader(program, vertex);

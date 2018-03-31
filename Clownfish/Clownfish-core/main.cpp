@@ -1,3 +1,6 @@
+
+#if 0
+
 #include <iostream>
 #include <vector>
 #include <time.h>
@@ -16,21 +19,21 @@
 #include "src\graphics\BatchRenderer2D.h"
 
 #include "src\graphics\Renderable3D.h"
-#include "src\graphics\simple3drenderer.h"
 #include "src\graphics\sprite.h"
 #include "src\graphics\static_sprite.h"
-#include "src\graphics\layers\tilelayer.h"
 #include "src\graphics\layers\group.h"
+#include "tilelayer.h"
 #include "src\graphics\texture.h"
 #include "src\graphics\label.h"
 
 #include "src\graphics\fontmanager.h"
+#include "src\audio\audiomanager.h"
+
 
 #define LOGLN(x) std::cout << x;
 #define LOG(x) std::cout << x << std::endl;
 
 #define LIGHTTOMOUSE 0
-
 
 
 int main()
@@ -40,10 +43,11 @@ int main()
 	using namespace graphics;
 	using namespace input;
 	using namespace maths;
+	using namespace audio;
 
 	//INITIALIZATION
 	Window window("Clownfish-Launcher", 960, 540);
-	Input input;
+
 	Timer time;
 	Shader* s = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
 	Shader& shader = *s;
@@ -73,61 +77,116 @@ int main()
 	//SHADER
 	shader.enable();
 	shader.setUniform1iv("textures", texIDs, 10);
-	mat4 ortho = mat4::othographic(-16, 16, -9.0f, 9.0f, -1.0f, 1.0f);
-	shader.setUniformMat4("pr_matrix", ortho);
 
+	AudioManager::add(new AudioClip("test", "bg.wav"));
+	AudioManager::add(new AudioClip("sound", "sound.wav"));
+
+	AudioManager::get("test")->loop();
+
+	Group group(mat4::translation(vec3(0, 0, 0)));
 	for (float y = -9; y < 9.0f; y++)
 	{
 		for (float x = -16; x < 16.0f; x++)
 		{
 
-			//layer.add(new Sprite(x, y, 0.9f, 0.9f, maths::vec4(1, rand() % 1000 / 1000.0f, 0, 1)));
+
+			//layer.add(new Sprite(x, y, 0.9f, 0.9f, 0xffffff));
 
 		}
 		Sprite* Mario = new Sprite(-8, 10.7f, 1, 1.1f, "mario.png");
-		Label* fpstext = new Label("Fps: ", -15, 7,"arial", 0xffffffff);
+		Label* fpstext = new Label("Fps: ", -15, 7, 0xffffffff);
 		Label* coinText = new Label("Coins: ", 10, 7, "mario", 0xffffffff);
 
-		Sprite* Background = new Sprite(-16, -9, 268, 18, "1-1.png");
+		Sprite* Background = new Sprite(116, 0, 268, 18, "1-1.png");
 
 		layer.add(Background);
 		layer.add(fpstext);
 		layer.add(coinText);
 		layer.add(Mario);
 
-		float x = 16;
-		float x1 = -16;
-
+		float cameraPosition = 0;
+		float jumpStart = 0;
+		bool isJumping = false;
+		bool groundcheck = false;
 		//UPDATE
 		while (!window.closed())
 		{
 			window.clear();
 
-			
-			if (Mario->getPosition().y > -6.7f)
-			{
-				Mario->translate(vec3(0, -0.004f, 0));
 
+			
+			if (Input::GetKeyDown(GLFW_KEY_P))
+			{
+				AudioManager::get("test")->pause();
+			}	
+			if (Input::GetKeyDown(GLFW_KEY_R))
+			{
+				AudioManager::get("test")->resume();
 			}
+	
 		
 
-			if (input.GetKey(GLFW_KEY_D) || input.GetKey(GLFW_KEY_RIGHT))
+
+			mat4 ortho = mat4::othographic(cameraPosition - 16, cameraPosition + 16, -9.0f, 9.0f, -1.0f, 1.0f);
+			shader.setUniformMat4("pr_matrix", ortho);
+			coinText->position = vec3(cameraPosition + 10, 7, 0);
+			fpstext->position = vec3(cameraPosition - 15, 7, 0);
+
+			if (Mario->getPosition().x - cameraPosition > 5)
+			{
+				cameraPosition += 0.1f;
+			}
+			if (Mario->getPosition().x - cameraPosition < -8)
+			{
+				cameraPosition -= 0.1f;
+			}
+			if (Mario->getPosition().y > -6.1f && !isJumping)
+			{
+				Mario->translate(vec3(0, -0.002f, 0));
+				groundcheck = false;
+			}
+			else
+			{
+				groundcheck = true;
+			}
+
+
+			if (Input::GetKey(GLFW_KEY_D) || Input::GetKey(GLFW_KEY_RIGHT))
 			{
 				Mario->translate(vec3(playerSpeed, 0, 0));
+				Mario->scale(vec2(1, Mario->getSize().y));
+
 				/*	x += 0.004f;
 					x1 += 0.004f;*/
 			}
 
-			if (input.GetKey(GLFW_KEY_A) || input.GetKey(GLFW_KEY_LEFT))
+			if (Input::GetKey(GLFW_KEY_A) || Input::GetKey(GLFW_KEY_LEFT))
 			{
 				Mario->translate(vec3(-playerSpeed, 0, 0));
+				Mario->scale(vec2(-1, Mario->getSize().y));
+
 				/*x -= 0.004f;
 				x1 -= 0.004f;*/
-			}
-			if (input.GetKeyDown(GLFW_KEY_SPACE))
+		}
+			if (Input::GetKeyDown(GLFW_KEY_SPACE) && groundcheck)
 			{
-				Mario->translate(vec3(0, 5, 0));
+				isJumping = true;
+				groundcheck = false;
+				jumpStart = Mario->getPosition().y;
+
+				if(AudioManager::get("sound")->isPlaying())
+					AudioManager::get("sound")->stop();
+
+				AudioManager::get("sound")->play();
 			}
+			if (isJumping)
+			{
+				Mario->translate(vec3(0, 0.003f, 0));
+				if (Mario->getPosition().y - jumpStart > 5)
+					isJumping = false;
+			}
+
+
 
 #if LIGHTTOMOUSE
 			//LIGHT TO MOUSE
@@ -137,6 +196,7 @@ int main()
 
 #endif
 			layer.render();
+			AudioManager::update();
 			window.update();
 			fps++;
 			if (time.elapsed() - timer > 1.0f)
@@ -147,8 +207,8 @@ int main()
 				printf("%d FPS\n", fps);
 				fps = 0;
 			}
-		}
-		FontManager::clean();
-		return 0;
 	}
+		return 0;
 }
+}
+#endif

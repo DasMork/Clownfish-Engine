@@ -1,8 +1,9 @@
 #include "window.h"
 #include "..\input\input.h"
 #include <iostream>
-#include "fontmanager.h"
 
+#include "fontmanager.h"
+#include "..\audio\audiomanager.h"
 namespace clownfish {
 	namespace graphics {
 
@@ -10,11 +11,12 @@ namespace clownfish {
 
 
 
-		Window::Window(const char *title, int width, int height)
+		Window::Window(const char *title, int width, int height, bool fullscreen)
 		{
 			m_Title = title;
 			m_Width = width;
 			m_Height = height;
+			m_FullScreen = fullscreen;
 
 			if (!init())
 				glfwTerminate();
@@ -24,6 +26,8 @@ namespace clownfish {
 		}
 		Window::~Window()
 		{
+			FontManager::clean();
+			audio::AudioManager::clean();
 			glfwTerminate();
 		}
 
@@ -31,19 +35,23 @@ namespace clownfish {
 		{
 			if (!glfwInit())
 			{
-				std::cout << "Failed to initialize GFLW!" << std::endl;
+				std::cout << "[GRAPHICS] Failed to initialize GFLW!" << std::endl;
 				return false;
 			}
 			else
-				std::cout << "Initialized GLFW!" << std::endl;
+				std::cout << "[GRAPHICS] Initialized GLFW!" << std::endl;
 
-
-			m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, NULL, NULL);
+			if (m_FullScreen)
+			{
+				m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, glfwGetPrimaryMonitor(), NULL);
+			}
+			else
+				m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, NULL, NULL);
 
 
 			if (!m_Window)
 			{
-				std::cout << "Failed to create GLFW Window!" << std::endl;
+				std::cout << "[GRAPHICS] Failed to create GLFW Window!" << std::endl;
 				return false;
 			}
 			glfwMakeContextCurrent(m_Window);
@@ -57,17 +65,18 @@ namespace clownfish {
 
 			if (glewInit() != GLEW_OK)
 			{
-				std::cout << "Could not intialize GLEW!" << std::endl;
+				std::cout << "[GRAPHICS] Could not intialize GLEW!" << std::endl;
 				return false;
 			}
 			else
-				std::cout << "Initialized GLEW!" << std::endl;
+				std::cout << "[GRAPHICS] Initialized GLEW!" << std::endl;
 
 
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 			LoadStandardFonts();
+			audio::AudioManager::init();
 
 			return true;
 		}
@@ -94,7 +103,7 @@ namespace clownfish {
 
 			GLenum error = glGetError();
 			if (error != GL_NO_ERROR)
-				std::cout << "OpenGL Error: " << error << std::endl;
+				std::cout << "[SHADER] OpenGL Error: " << error << std::endl;
 
 
 			glfwSwapBuffers(m_Window);
@@ -118,7 +127,7 @@ namespace clownfish {
 		void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 		{
 			Window* win = (Window*)glfwGetWindowUserPointer(window);
-			input::Input::m_Keys[key] = action == GLFW_PRESS;
+			input::Input::m_Keys[key] = action != GLFW_RELEASE;
 
 
 		}

@@ -79,11 +79,20 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{44ada5b0-a9ab-47ee-973e-916d1b4bc787}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\ext\gorilla-audio">
+      <UniqueIdentifier>{f8752068-4b49-4bfc-93eb-c0225b3730b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\ext\gorilla-audio">
+      <UniqueIdentifier>{54fbcbb8-0dae-4b28-ab0b-b68f7378a471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\audio">
+      <UniqueIdentifier>{62e73b10-1108-4376-aa9d-4dfe2442d06e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\audio">
+      <UniqueIdentifier>{6c8d614b-a1ad-4b94-a8a4-79e5903c7e5b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="ext\freetype\src\autofit\autofit.c">
       <Filter>Quelldateien\ext\freetype</Filter>
     </ClCompile>
@@ -243,28 +252,13 @@
     <ClCompile Include="src\maths\vec4.cpp">
       <Filter>Quelldateien\maths</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\Model.cpp">
-      <Filter>Quelldateien\graphics\renderables</Filter>
-    </ClCompile>
     <ClCompile Include="src\graphics\sprite.cpp">
       <Filter>Quelldateien\graphics\renderables</Filter>
-    </ClCompile>
-    <ClCompile Include="src\graphics\static_sprite.cpp">
-      <Filter>Quelldateien\graphics\renderables</Filter>
-    </ClCompile>
-    <ClCompile Include="src\graphics\layers\tilelayer.cpp">
-      <Filter>Quelldateien\graphics\layers</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\shader.cpp">
       <Filter>Quelldateien\graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\BatchRenderer2D.cpp">
-      <Filter>Quelldateien\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\graphics\simple2drenderer.cpp">
-      <Filter>Quelldateien\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\graphics\simple3drenderer.cpp">
       <Filter>Quelldateien\graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\texture.cpp">
@@ -281,6 +275,36 @@
     </ClCompile>
     <ClCompile Include="src\graphics\fontmanager.cpp">
       <Filter>Quelldateien\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\gorilla-audio\ga.c">
+      <Filter>Quelldateien\ext\gorilla-audio</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\gorilla-audio\devices\ga_openal.c">
+      <Filter>Quelldateien\ext\gorilla-audio</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\gorilla-audio\ga_stream.c">
+      <Filter>Quelldateien\ext\gorilla-audio</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\gorilla-audio\gau.c">
+      <Filter>Quelldateien\ext\gorilla-audio</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\gorilla-audio\common\gc_common.c">
+      <Filter>Quelldateien\ext\gorilla-audio</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\gorilla-audio\common\gc_thread.c">
+      <Filter>Quelldateien\ext\gorilla-audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audio\audioclip.cpp">
+      <Filter>Quelldateien\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audio\audiomanager.cpp">
+      <Filter>Quelldateien\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\Model.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="examples\game.cpp">
+      <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -329,16 +353,7 @@
     <ClInclude Include="src\graphics\renderer2d.h">
       <Filter>Headerdateien\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\renderer3d.h">
-      <Filter>Headerdateien\graphics</Filter>
-    </ClInclude>
     <ClInclude Include="src\graphics\shader.h">
-      <Filter>Headerdateien\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\graphics\simple2drenderer.h">
-      <Filter>Headerdateien\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\graphics\simple3drenderer.h">
       <Filter>Headerdateien\graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\texture.h">
@@ -392,19 +407,10 @@
     <ClInclude Include="src\graphics\Renderable2D.h">
       <Filter>Headerdateien\graphics\renderables</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\Renderable3D.h">
-      <Filter>Headerdateien\graphics\renderables</Filter>
-    </ClInclude>
     <ClInclude Include="src\graphics\sprite.h">
       <Filter>Headerdateien\graphics\renderables</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\static_sprite.h">
-      <Filter>Headerdateien\graphics\renderables</Filter>
-    </ClInclude>
     <ClInclude Include="src\graphics\layers\layer.h">
-      <Filter>Headerdateien\graphics\layers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\graphics\layers\tilelayer.h">
       <Filter>Headerdateien\graphics\layers</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\buffers\vertextarray.h">
@@ -418,6 +424,42 @@
     </ClInclude>
     <ClInclude Include="src\graphics\fontmanager.h">
       <Filter>Headerdateien\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\gorilla-audio\ga.h">
+      <Filter>Headerdateien\ext\gorilla-audio</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\gorilla-audio\ga_internal.h">
+      <Filter>Headerdateien\ext\gorilla-audio</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\gorilla-audio\devices\ga_openal.h">
+      <Filter>Headerdateien\ext\gorilla-audio</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\gorilla-audio\gau.h">
+      <Filter>Headerdateien\ext\gorilla-audio</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\gorilla-audio\common\gc_common.h">
+      <Filter>Headerdateien\ext\gorilla-audio</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\gorilla-audio\common\gc_thread.h">
+      <Filter>Headerdateien\ext\gorilla-audio</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\gorilla-audio\common\gc_types.h">
+      <Filter>Headerdateien\ext\gorilla-audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\stringutils.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\audio\audioclip.h">
+      <Filter>Headerdateien\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\audio\audiomanager.h">
+      <Filter>Headerdateien\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\Renderable3D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clownfish.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
