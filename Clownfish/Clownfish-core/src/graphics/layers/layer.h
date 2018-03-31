@@ -20,6 +20,9 @@ namespace clownfish {
 			virtual ~Layer();
 			virtual void add(Renderable2D* renderable);
 			virtual void render();
+
+
+			inline const Renderer2D* getRenderer() const { return m_Renderer; }
 		protected:
 
 		};

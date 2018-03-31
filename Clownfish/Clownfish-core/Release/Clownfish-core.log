@@ -1,16 +1,2 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(373,5): warning MSB8004: Das Output-Verzeichnis endet nicht mit einem nachstehenden Schrägstrich. Der Schrägstrich wird in dieser Buildinstanz hinzugefügt, da er für die ordnungsgemäße Auswertung des Output-Verzeichnisses erforderlich ist.
-  game.cpp
-c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\input\input.h(42): warning C4091: "static ": Ignoriert auf der linken Seite von "clownfish::input::Input", wenn keine Variable deklariert wurde
-c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\maths\maths_func.h(11): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\Renderable2D.h(63): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
-c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\Renderable2D.h(64): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
-c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\Renderable2D.h(65): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
-c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\Renderable2D.h(66): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
-LINK : warning LNK4098: Standardbibliothek "LIBCMT" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
-  Code wird generiert.
-  1 of 2645 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Codegenerierung ist abgeschlossen.
-glew32s.lib(glew.obj) : warning LNK4099: PDB "vc120.pdb" wurde nicht mit "glew32s.lib(glew.obj)" oder an "C:\Users\Jannik\Documents\GitHub\Clownfish-Engine\Clownfish\Clownfish-core\vc120.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
   Clownfish-core.vcxproj -> C:\Users\Jannik\Documents\GitHub\Clownfish-Engine\Clownfish\Clownfish-core\.\Clownfish-core.exe

@@ -1,10 +1,10 @@
-﻿  game.cpp
-c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\input\input.h(42): warning C4091: "static ": Ignoriert auf der linken Seite von "clownfish::input::Input", wenn keine Variable deklariert wurde
+﻿  Layout.cpp
+c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\input\input.h(51): warning C4091: "static ": Ignoriert auf der linken Seite von "clownfish::input::Input", wenn keine Variable deklariert wurde
 c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\maths\maths_func.h(11): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(63): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
-c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(64): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
-c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(65): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
-c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(66): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(80): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(81): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(82): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(83): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
   libvorbis.lib(vorbisfile.obj) : Es wurde ein mit /GL kompiliertes MSIL .netmodule oder module gefunden. Verknüpfung wird mit /LTCG erneut gestartet. Fügen Sie /LTCG zur Linkbefehlszeile hinzu, um die Linkerleistung zu erhöhen.
 LINK : warning LNK4075: /INCREMENTAL wird aufgrund der Angabe von /LTCG ignoriert.
 LINK : warning LNK4098: Standardbibliothek "MSVCRT" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.

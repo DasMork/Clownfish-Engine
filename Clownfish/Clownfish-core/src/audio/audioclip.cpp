@@ -80,12 +80,15 @@ namespace clownfish {
 
 		void AudioClip::setVolume(float volume)
 		{
-			if (m_Playing)
+			if (!m_Playing)
 			{
 				std::cout << "[AUDIO] Cannot set volume if the sound isn't playing!" << std::endl;
 			}
+			else
+			{
 			m_Volume = volume;
 			ga_handle_setParamf(m_Handle, GA_HANDLE_PARAM_GAIN, volume);
+			}
 
 		}
 

@@ -13,7 +13,17 @@ namespace clownfish {
 		bool Input::m_KeyTyped[GLFW_KEY_LAST];
 		bool Input::m_MouseState[GLFW_MOUSE_BUTTON_LAST];
 		bool Input::m_MouseClicked[GLFW_MOUSE_BUTTON_LAST];
+		const float* Input::m_Axes;
+	    int Input::m_ControllerConnected;
+
+
 		Input::Input()
+		{
+		
+		}
+		Input::~Input() {}
+
+		void Input::init()
 		{
 			for (int i = 0; i < GLFW_KEY_LAST; i++)
 			{
@@ -27,8 +37,49 @@ namespace clownfish {
 				m_MouseState[i] = false;
 				m_MouseClicked[i] = false;
 			}
+
 		}
-		Input::~Input() {}
+
+		void Input::update()
+		{
+			m_ControllerConnected = glfwJoystickPresent(GLFW_JOYSTICK_1);
+			if (!m_ControllerConnected)
+				return;
+			
+				int count;
+				m_Axes = glfwGetJoystickAxes(GLFW_JOYSTICK_1, &count);
+			
+
+		}
+
+		float Input::GetAxis(int axis) 
+		{
+			float result = 0;
+
+			if(m_Axes!= nullptr)
+			result = m_Axes[axis];
+
+			if(axis == 0)
+			{
+			if (GetKey(GLFW_KEY_RIGHT) || GetKey(GLFW_KEY_D))
+				result = 1;
+
+			if (GetKey(GLFW_KEY_LEFT) || GetKey(GLFW_KEY_A))
+				result = -1;
+			}
+			if (axis == 1)
+			{
+				if (GetKey(GLFW_KEY_UP) || GetKey(GLFW_KEY_W))
+					result = 1;
+
+				if (GetKey(GLFW_KEY_DOWN) || GetKey(GLFW_KEY_S))
+					result = -1;
+			}
+
+		
+			return result;
+		}
+
 
 		bool Input::GetKey(unsigned int keycode)
 		{
@@ -46,6 +97,7 @@ namespace clownfish {
 
 			return m_KeyTyped[keycode];
 		}
+	
 		bool Input::GetMouseButton(unsigned int keycode)
 		{
 			if (keycode >= GLFW_MOUSE_BUTTON_LAST)

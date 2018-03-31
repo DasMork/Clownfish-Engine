@@ -1,5 +1,4 @@
 #include "window.h"
-#include "..\input\input.h"
 #include <iostream>
 
 #include "fontmanager.h"
@@ -77,6 +76,7 @@ namespace clownfish {
 
 			LoadStandardFonts();
 			audio::AudioManager::init();
+			input::Input::init();
 
 			return true;
 		}
@@ -105,6 +105,7 @@ namespace clownfish {
 			if (error != GL_NO_ERROR)
 				std::cout << "[SHADER] OpenGL Error: " << error << std::endl;
 
+			input::Input::update();
 
 			glfwSwapBuffers(m_Window);
 			glfwPollEvents();
@@ -149,8 +150,9 @@ namespace clownfish {
 
 		void Window::LoadStandardFonts()
 		{
-			FontManager::add(new Font("arial", "arial.ttf", 30));
-			FontManager::add(new Font("mario", "mario.ttf", 30));
+			FontManager::add(new Font("arial", "fonts/arial.ttf", 30));
+			FontManager::add(new Font("mario", "fonts/mario.ttf", 30));
+			FontManager::add(new Font("Freedoka", "fonts/FredokaOne-Regular.ttf", 30));
 
 		}
 

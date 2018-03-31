@@ -300,10 +300,7 @@
     <ClCompile Include="src\audio\audiomanager.cpp">
       <Filter>Quelldateien\audio</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\Model.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="examples\game.cpp">
+    <ClCompile Include="examples\Layout.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -446,20 +443,17 @@
     <ClInclude Include="ext\gorilla-audio\common\gc_types.h">
       <Filter>Headerdateien\ext\gorilla-audio</Filter>
     </ClInclude>
-    <ClInclude Include="src\utils\stringutils.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="src\audio\audioclip.h">
       <Filter>Headerdateien\audio</Filter>
     </ClInclude>
     <ClInclude Include="src\audio\audiomanager.h">
       <Filter>Headerdateien\audio</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\Renderable3D.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="src\clownfish.h">
       <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\stringutils.h">
+      <Filter>Headerdateien\utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

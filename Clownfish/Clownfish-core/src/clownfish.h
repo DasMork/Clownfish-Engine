@@ -13,7 +13,6 @@
 #include "graphics\simple2drenderer.h"
 #include "graphics\BatchRenderer2D.h"
 
-#include "graphics\Renderable3D.h"
 #include "graphics\sprite.h"
 #include "graphics\static_sprite.h"
 #include "graphics\layers\group.h"
@@ -35,6 +34,8 @@ namespace clownfish
 		int m_FramesperSecond, m_UpdatesPerSecond;
 
 	public:
+
+
 		virtual void start()
 		{
 			init();
@@ -74,7 +75,6 @@ namespace clownfish
 
 		const unsigned int getFPS() const { return m_FramesperSecond; }
 		const unsigned int getUPS() const { return m_UpdatesPerSecond; }
-
 	private:
 		void run()
 		{
@@ -84,6 +84,8 @@ namespace clownfish
 			float updateTick = 1.0f/60.0f;
 			unsigned int frames = 0;
 			unsigned int updates = 0;
+
+			
 
 			while (!m_Window->closed())
 			{

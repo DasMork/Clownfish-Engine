@@ -7,75 +7,48 @@ using namespace input;
 using namespace maths;
 using namespace audio;
 
-class Game : public Clownfish
+class DailyFun : public Clownfish
 {
 
 private:
 	Window* window;
-	Layer* layer;
 	Label* fps;
-	Sprite* CF;
+	Layer* layer;
 
 
-	float speedX = 0.5f;
-	float speedY = 0.5f;
 
 public:
-	Game(){}
+	DailyFun() {}
 
 
 	void init() override
 	{
-		window = createWindow("Game", 960, 540, false);
-		layer = new Layer(new BatchRenderer2D(), new Shader("src/shaders/basic.vert", "src/shaders/basic.frag"), maths::mat4::othographic(-16, 16, -9.0f, 9.0f, -1.0f, 1.0f));
+		window = createWindow("DailyFun", 320, 480, false);
 
+		fps = new Label("", -8.5f, 13.5f, "Freedoka", 42, 0xff0000ff);
+		layer = new Layer(new BatchRenderer2D(), new Shader("src/shaders/basic.vert", "src/shaders/basic.frag"), maths::mat4::othographic(-9, 9, -16.0f, 16.0f, -1.0f, 1.0f));
+		AudioManager::add(new AudioClip("music", "DailyFun.wav"));
+		AudioManager::get("music")->loop();
 
-		CF = new Sprite(-15, 0, 5, 4, "logo.png");
-
-	   fps = new Label("", -15.5f, 7.5f,"mario",42, 0xff0000ff);
-
-	   AudioManager::add(new AudioClip("music", "bg.wav"));
-	   AudioManager::get("music")->loop();
-
-		layer->add(new Sprite(0, 0, 32, 18, "logo.png"));
-		layer->add(CF);
+		layer->add(new Sprite(0, 0, 18, 32, "giphy.png"));
 		layer->add(fps);
 	}
+
+	// Once per Second
 	void tick() override
 	{
 		fps->text = std::to_string(getFPS());
 
-//		speedX *= -1;
-
-		//if(speedX < 0)
-		//	CF->scale(vec2(5, 4));
-
-		//if (speedX > 0)
-		//	CF->scale(vec2(-5, 4));
-
 	}
+
+
+	//60 Times per Second
 	void update() override
 	{
-	if(Input::GetKey(GLFW_KEY_RIGHT))
-	{
-		CF->translate(vec3(speedX, 0, 0));
-		CF->scale(vec2(-5,4));
+	
 	}
-	if (Input::GetKey(GLFW_KEY_LEFT))
-	{
-		CF->translate(vec3(-speedX, 0, 0));		
-		CF->scale(vec2(5, 4));
 
-	}
-	if (Input::GetKey(GLFW_KEY_UP))
-	{
-		CF->translate(vec3(0, speedY, 0));
-	}
-	if (Input::GetKey(GLFW_KEY_DOWN))
-	{
-		CF->translate(vec3(0, -speedY, 0));
-	}
-	}
+	//As fast as possible
 	void render() override
 	{
 		layer->render();
@@ -83,9 +56,11 @@ public:
 	}
 };
 
+
+//Game
 int main()
 {
-	Game game;
+	DailyFun game;
 	game.start();
 
 	return 0;

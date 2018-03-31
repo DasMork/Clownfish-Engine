@@ -11,6 +11,8 @@ namespace clownfish {
 		FREE_IMAGE_FORMAT fif = FIF_UNKNOWN;
 		FIBITMAP *dib = nullptr;
 
+
+
 		fif = FreeImage_GetFileType(filename, 0);
 		if (fif == FIF_UNKNOWN)
 			fif = FreeImage_GetFIFFromFilename(filename);
@@ -23,6 +25,8 @@ namespace clownfish {
 		if (!dib)
 			return nullptr;
 
+
+		dib = FreeImage_ConvertTo32Bits(dib);
 
 		BYTE* pixels = FreeImage_GetBits(dib);
 		*width = FreeImage_GetWidth(dib);
