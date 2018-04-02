@@ -101,6 +101,8 @@ namespace clownfish {
 				}
 			}
 
+			
+
 			m_Buffer->vertex = m_TransformationStack.back().multiply(maths::vec3(position.x - size.x/2, position.y - size.y / 2, position.z));
 			m_Buffer->uv = uv[0];
 			m_Buffer->tid = ts;

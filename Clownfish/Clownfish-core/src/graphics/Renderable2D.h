@@ -27,8 +27,10 @@ namespace clownfish {
 			unsigned int m_Color;
 			std::vector<maths::vec2> m_UV;
 			Texture* m_Texture;
-			bool m_Collided;
+
+			maths::vec3 m_Translation;
 			bool m_HasCollision = false;
+			bool m_HasMoved = false;
 
 		protected:
 			Renderable2D()
@@ -55,19 +57,21 @@ namespace clownfish {
 			{
 				m_Position += translation;
 
+				m_Translation = translation;
+				m_HasMoved = true;
+
 				if (!m_HasCollision)
 					return;
 
 				
+				//float sizeX = sqrt(m_Size.x * m_Size.x) / 2;
+				//float sizeY = sqrt(m_Size.y * m_Size.y) / 2;
 
-				float sizeX = sqrt(m_Size.x * m_Size.x) / 2;
-				float sizeY = sqrt(m_Size.y * m_Size.y) / 2;
+				//if (m_Position.x - sizeX < -16 || m_Position.x + sizeX > 16)
+				//	m_Position -= maths::vec3(translation.x, 0, 0);
 
-				if (m_Position.x - sizeX < -16 || m_Position.x + sizeX > 16)
-					m_Position -= maths::vec3(translation.x, 0, 0);
-
-				if (m_Position.y - sizeY < -9 || m_Position.y + sizeY > 9)
-					m_Position -= maths::vec3(0, translation.y, 0);
+				//if (m_Position.y - sizeY < -9 || m_Position.y + sizeY > 9)
+				//	m_Position -= maths::vec3(0, translation.y, 0);
 
 			}
 			virtual void scale(maths::vec2 scale)
@@ -88,10 +92,13 @@ namespace clownfish {
 
 
 			inline const maths::vec3& getPosition() const { return m_Position; }
+			inline const maths::vec3& getTranslation() const { return m_Translation; }
+
 			inline const maths::vec2& getSize() const { return m_Size; }
 			inline const unsigned int getColor() const { return m_Color; }
 			inline const std::vector<maths::vec2>& getUV() const { return m_UV; }
 			inline const bool hasCollision() const { return m_HasCollision; }
+			inline const bool hasMoved() const { return m_HasMoved; }
 
 			inline const GLuint getTID() const { return m_Texture == nullptr ? 0 : m_Texture->getID(); }
 

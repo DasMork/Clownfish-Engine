@@ -7,7 +7,7 @@ using namespace input;
 using namespace maths;
 using namespace audio;
 
-class DailyFun : public Clownfish
+class Game : public Clownfish
 {
 
 private:
@@ -18,7 +18,7 @@ private:
 	Label* ups;
 	BatchRenderer2D* renderer;
 public:
-	DailyFun() {}
+	Game() {}
 
 	// On Begin
 	void init() override
@@ -30,12 +30,20 @@ public:
 
 		fps = new Label("5000", -15.5f, 7.5f, "arial", 42, 0xff0000ff);
 		ups = new Label("60", 14.0f, 7.5f, "arial", 42, 0xff0000ff);
-		logo = new Sprite(0, 0, 10, 8, "logo.png");
+		logo = new Sprite(0, 0, 10, 8, 0xff00ffff);
+		Sprite* wall = new Sprite(-13, 0, 2, 9, 0xff00ffff);
+		Sprite* wall2 = new Sprite(16, 0, 2, 18, 0xff00ffff);
+
+		wall->setColision(true);
+		wall2->setColision(true);
+
+		logo->setColision(true);
 		layer->add(new Label("Welcome to", -9.5f, 5, "mario", 80, 0xff00ffff));
 		layer->add(new Label("Clownfish!", -8, 3, "mario", 80, 0xff00ffff));
-		AudioManager::add(new AudioClip("background", "test.wav"));
+		AudioManager::add(new AudioClip("background", "zelda.wav"));
 
-
+		layer->add(wall);
+		layer->add(wall2);
 		layer->add(logo);
 		layer->add(fps);
 		layer->add(ups);
@@ -56,14 +64,14 @@ public:
 	//60 Times per Second
 	void update() override
 	{
-		float x = Input::GetAxis(0);
-		float y = Input::GetAxis(1);
+		float x = Input::GetAxis(HORIZONTAL);
+		float y = Input::GetAxis(VERTICAL);
 
-		if (x > 0.1f)
-			logo->scale(vec2(-10, 8));
+		//if (x > 0.1f)
+		//	logo->scale(vec2(-10, 8));
 
-		if (x < -0.1f)
-			logo->scale(vec2(10, 8));
+		//if (x < -0.1f)
+		//	logo->scale(vec2(10, 8));
 
 		logo->translate(vec3(x * 0.5f, y * 0.5f, 0));
 
@@ -73,7 +81,7 @@ public:
 	//As fast as possible
 	void render() override
 	{
-		glClearColor(0, 0, 0.8f, 1);
+		glClearColor(1, 1, 1, 1);
 		layer->render();
 		AudioManager::update();
 	}
@@ -83,7 +91,7 @@ public:
 //Game
 int main()
 {
-	DailyFun game;
+	Game game;
 	game.start();
 	return 0;
 }

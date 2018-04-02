@@ -61,18 +61,18 @@ namespace clownfish {
 
 			if(axis == 0)
 			{
-			if (GetKey(GLFW_KEY_RIGHT) || GetKey(GLFW_KEY_D))
+			if (GetKey(KEY_RIGHT) || GetKey(KEY_D))
 				result = 1;
 
-			if (GetKey(GLFW_KEY_LEFT) || GetKey(GLFW_KEY_A))
+			if (GetKey(KEY_LEFT) || GetKey(KEY_A))
 				result = -1;
 			}
 			if (axis == 1)
 			{
-				if (GetKey(GLFW_KEY_UP) || GetKey(GLFW_KEY_W))
+				if (GetKey(KEY_UP) || GetKey(KEY_W))
 					result = 1;
 
-				if (GetKey(GLFW_KEY_DOWN) || GetKey(GLFW_KEY_S))
+				if (GetKey(KEY_DOWN) || GetKey(KEY_S))
 					result = -1;
 			}
 
