@@ -30,12 +30,10 @@ public:
 
 		fps = new Label("5000", -15.5f, 7.5f, "arial", 42, 0xff0000ff);
 		ups = new Label("60", 14.0f, 7.5f, "arial", 42, 0xff0000ff);
-		logo = new Sprite(0, 0, 10, 8, 0xff00ffff);
-		Sprite* wall = new Sprite(-13, 0, 2, 9, 0xff00ffff);
-		Sprite* wall2 = new Sprite(16, 0, 2, 18, 0xff00ffff);
+		logo = new Sprite(-6, 0, 10, 8, "logo.png");
+		Sprite* wall = new Sprite(0, -3, 2, 6, 0xff00ffff);
 
 		wall->setColision(true);
-		wall2->setColision(true);
 
 		logo->setColision(true);
 		layer->add(new Label("Welcome to", -9.5f, 5, "mario", 80, 0xff00ffff));
@@ -43,7 +41,6 @@ public:
 		AudioManager::add(new AudioClip("background", "zelda.wav"));
 
 		layer->add(wall);
-		layer->add(wall2);
 		layer->add(logo);
 		layer->add(fps);
 		layer->add(ups);
@@ -67,11 +64,11 @@ public:
 		float x = Input::GetAxis(HORIZONTAL);
 		float y = Input::GetAxis(VERTICAL);
 
-		//if (x > 0.1f)
-		//	logo->scale(vec2(-10, 8));
+		if (x > 0.1f)
+			logo->scale(vec2(-10, 8));
 
-		//if (x < -0.1f)
-		//	logo->scale(vec2(10, 8));
+		if (x < -0.1f)
+			logo->scale(vec2(10, 8));
 
 		logo->translate(vec3(x * 0.5f, y * 0.5f, 0));
 
@@ -81,10 +78,11 @@ public:
 	//As fast as possible
 	void render() override
 	{
-		glClearColor(1, 1, 1, 1);
+		glClearColor(0, 0, 0.8f, 1);
 		layer->render();
 		AudioManager::update();
 	}
+	
 };
 
 

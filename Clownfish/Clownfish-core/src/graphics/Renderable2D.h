@@ -53,6 +53,7 @@ namespace clownfish {
 				renderer->submit(this);
 			}
 
+
 			virtual void translate(maths::vec3 translation)
 			{
 				m_Position += translation;
@@ -60,18 +61,7 @@ namespace clownfish {
 				m_Translation = translation;
 				m_HasMoved = true;
 
-				if (!m_HasCollision)
-					return;
-
-				
-				//float sizeX = sqrt(m_Size.x * m_Size.x) / 2;
-				//float sizeY = sqrt(m_Size.y * m_Size.y) / 2;
-
-				//if (m_Position.x - sizeX < -16 || m_Position.x + sizeX > 16)
-				//	m_Position -= maths::vec3(translation.x, 0, 0);
-
-				//if (m_Position.y - sizeY < -9 || m_Position.y + sizeY > 9)
-				//	m_Position -= maths::vec3(0, translation.y, 0);
+		
 
 			}
 			virtual void scale(maths::vec2 scale)

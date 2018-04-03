@@ -58,17 +58,14 @@ namespace clownfish {
 					{
 						Renderable2D* renderable = m_Colliders[i];
 
-						float sizeX = sqrt(renderable->getSize().x *renderable->getSize().x) / 2;
-						float sizeY = sqrt(renderable->getSize().y* renderable->getSize().y) / 2;
+						
 
 						for (int z = 0; z < m_Colliders.size(); z++)
 						{
 							if (m_Colliders[z] != renderable)
 							{
-								std::cout << CheckCollision(renderable, m_Colliders[z]) << std::endl;
-
 								if (CheckCollision(renderable, m_Colliders[z]))
-									renderable->translate(maths::vec3(-renderable->getTranslation().x, -renderable->getTranslation().y, 0));
+									renderable->translate(maths::vec3(-renderable->getTranslation().x, -renderable->getTranslation().y, -renderable->getTranslation().z));
 
 							}
 						}
@@ -90,12 +87,18 @@ namespace clownfish {
 
 		bool Layer::CheckCollision(Renderable2D* renderable, Renderable2D* other) // AABB - AABB collision
 		{
+			float sizeX = sqrt(renderable->getSize().x *renderable->getSize().x) / 2;
+			float sizeY = sqrt(renderable->getSize().y* renderable->getSize().y) / 2;
+
+			float otherSizeX = sqrt(other->getSize().x *other->getSize().x) / 2;
+			float otherSizeY = sqrt(other->getSize().y* other->getSize().y) / 2;
+
 			// Collision x-axis?
-			bool collisionX = renderable->getPosition().x + renderable->getSize().x >= other->getPosition().x&&
-				other->getPosition().x + other->getSize().x >= renderable->getPosition().x;
+			bool collisionX = renderable->getPosition().x + sizeX > other->getPosition().x - otherSizeX &&
+				other->getPosition().x + otherSizeX > renderable->getPosition().x - sizeX;
 			// Collision y-axis?
-			bool collisionY = renderable->getPosition().y + renderable->getSize().y >= other->getPosition().y &&
-				other->getPosition().y + other->getSize().y >= renderable->getPosition().y;
+			bool collisionY = renderable->getPosition().y + sizeY > other->getPosition().y - otherSizeY &&
+				other->getPosition().y + otherSizeY > renderable->getPosition().y - sizeY;
 			// Collision only if on both axes
 			return collisionX && collisionY;
 		}
