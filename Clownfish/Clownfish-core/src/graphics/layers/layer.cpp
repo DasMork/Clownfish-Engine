@@ -64,9 +64,8 @@ namespace clownfish {
 						{
 							if (m_Colliders[z] != renderable)
 							{
-								if (CheckCollision(renderable, m_Colliders[z]))
-									renderable->translate(maths::vec3(-renderable->getTranslation().x, -renderable->getTranslation().y, -renderable->getTranslation().z));
-
+								CheckCollision(renderable, m_Colliders[z]);
+									//OnCollisionEnter();
 							}
 						}
 					}
@@ -100,6 +99,12 @@ namespace clownfish {
 			bool collisionY = renderable->getPosition().y + sizeY > other->getPosition().y - otherSizeY &&
 				other->getPosition().y + otherSizeY > renderable->getPosition().y - sizeY;
 			// Collision only if on both axes
+
+			if(collisionX && collisionY)
+			{
+			renderable->translate(maths::vec3(-renderable->getTranslation().x, -renderable->getTranslation().y, -renderable->getTranslation().z));
+			}
+			
 			return collisionX && collisionY;
 		}
 

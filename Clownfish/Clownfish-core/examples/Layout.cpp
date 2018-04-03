@@ -17,8 +17,13 @@ private:
 	Label* fps;
 	Label* ups;
 	BatchRenderer2D* renderer;
+
+
+
 public:
 	Game() {}
+
+
 
 	// On Begin
 	void init() override
@@ -29,21 +34,23 @@ public:
 
 
 		fps = new Label("5000", -15.5f, 7.5f, "arial", 42, 0xff0000ff);
-		ups = new Label("60", 14.0f, 7.5f, "arial", 42, 0xff0000ff);
+		ups = new Label("60", 12.5f, 7.5f, "arial", 42, 0xff0000ff);
 		logo = new Sprite(-6, 0, 10, 8, "logo.png");
 		Sprite* wall = new Sprite(0, -3, 2, 6, 0xff00ffff);
 
+
 		wall->setColision(true);
-
 		logo->setColision(true);
-		layer->add(new Label("Welcome to", -9.5f, 5, "mario", 80, 0xff00ffff));
-		layer->add(new Label("Clownfish!", -8, 3, "mario", 80, 0xff00ffff));
-		AudioManager::add(new AudioClip("background", "zelda.wav"));
 
+
+		layer->add(new Label("Welcome to    Clownfish!", -9.5f, 5, "mario", 80, 0xff00ffff));
 		layer->add(wall);
 		layer->add(logo);
 		layer->add(fps);
 		layer->add(ups);
+
+
+		AudioManager::add(new AudioClip("background", "zelda.wav"));
 		AudioManager::get("background")->loop();
 	}
 
@@ -79,6 +86,7 @@ public:
 	void render() override
 	{
 		glClearColor(0, 0, 0.8f, 1);
+
 		layer->render();
 		AudioManager::update();
 	}
