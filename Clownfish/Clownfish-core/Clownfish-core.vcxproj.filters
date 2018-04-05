@@ -305,9 +305,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ext\freetype\Include\ft2build.h">
-      <Filter>Headerdateien\ext\freetype</Filter>
-    </ClInclude>
     <ClInclude Include="ext\freetype\Include\config\ftconfig.h">
       <Filter>Headerdateien\ext\freetype</Filter>
     </ClInclude>
@@ -454,6 +451,9 @@
     </ClInclude>
     <ClInclude Include="src\utils\stringutils.h">
       <Filter>Headerdateien\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\freetype\Include\ft2build.h">
+      <Filter>Headerdateien\ext\freetype</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -65,8 +65,10 @@ namespace clownfish {
 							if (m_Colliders[z] != renderable)
 							{
 								if (CheckCollision(renderable, m_Colliders[z]))
+								{
 									renderable->translate(maths::vec3(-renderable->getTranslation().x, -renderable->getTranslation().y, -renderable->getTranslation().z));
-
+									//renderable.
+								}
 							}
 						}
 					}

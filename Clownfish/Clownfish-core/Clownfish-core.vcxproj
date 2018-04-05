@@ -32,7 +32,7 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -70,14 +70,14 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)\Dependencies\GLFW\Include;$(SolutionDir)\Dependencies\GLEW\Include;$(SolutionDir)\Dependencies\FreeImage\Include;$(ProjectDir)\ext\freetype\Include;$(ProjectDir)\ext\freetype-gl;$(SolutionDir)\Dependencies\OpenAL\include;$(SolutionDir)\Dependencies\libogg\include;$(SolutionDir)\Dependencies\libvorbis\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\Dependencies\libogg\bin;$(SolutionDir)\Dependencies\libvorbis\bin;$(SolutionDir)\Dependencies\GLFW\lib-vc2015;$(SolutionDir)\Dependencies\FreeImage\lib;$(SolutionDir)\Dependencies\GLEW\lib;$(SolutionDir)\Dependencies\OpenAL\libs\Win32;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)$(Configuration)\bin\</OutDir>
+    <IncludePath>$(ProjectDir)\ext\freetype\Include;$(SolutionDir)Dependencies\OpenAL\include;$(SolutionDir)Dependencies\libvorbis\include;$(SolutionDir)Dependencies\libogg\include;$(SolutionDir)Dependencies\FreeImage\Include;$(SolutionDir)Dependencies\GLFW\Include;$(SolutionDir)Dependencies\GLEW\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)\Dependencies\GLFW\Include;$(SolutionDir)\Dependencies\GLEW\Include;$(SolutionDir)\Dependencies\FreeImage\Include;$(ProjectDir)\ext\freetype\Include;$(ProjectDir)\ext\freetype-gl;$(SolutionDir)\Dependencies\OpenAL\include;$(SolutionDir)\Dependencies\libogg\include;$(SolutionDir)\Dependencies\libvorbis\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\Dependencies\libogg\bin;$(SolutionDir)\Dependencies\libvorbis\bin;$(SolutionDir)\Dependencies\GLFW\lib-vc2015;$(SolutionDir)\Dependencies\FreeImage\lib;$(SolutionDir)\Dependencies\GLEW\lib;$(SolutionDir)\Dependencies\OpenAL\libs\Win32;$(LibraryPath)</LibraryPath>
-    <OutDir>.</OutDir>
+    <OutDir>$(SolutionDir)Clownfish-Core\lib</OutDir>
+    <IncludePath>$(ProjectDir)\ext\freetype\Include;$(SolutionDir)Dependencies\OpenAL\include;$(SolutionDir)Dependencies\libvorbis\include;$(SolutionDir)Dependencies\libogg\include;$(SolutionDir)Dependencies\FreeImage\Include;$(SolutionDir)Dependencies\GLFW\Include;$(SolutionDir)Dependencies\GLEW\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -86,6 +86,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;NDEBUG;WIN32;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;glew32s.lib;FreeImage.lib;OpenAL32.lib;libvorbis.lib;libogg.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -110,6 +111,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <FloatingPointModel>Fast</FloatingPointModel>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
