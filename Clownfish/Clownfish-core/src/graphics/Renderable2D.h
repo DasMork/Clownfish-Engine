@@ -44,6 +44,12 @@ namespace clownfish {
 				setUVDefaults();
 
 			}
+			Renderable2D(maths::vec3 position, maths::vec2 size, maths::vec3 color)
+				:m_Position(position), m_Size(size)
+			{
+				setUVDefaults();
+				setColor(color);
+			}
 			~Renderable2D()
 			{
 
@@ -75,6 +81,15 @@ namespace clownfish {
 				int g = color.y * 255.0f;
 				int b = color.z * 255.0f;
 				int a = color.w * 255.0f;
+
+				m_Color = a << 24 | b << 16 | g << 8 | r;
+			}
+			void setColor(maths::vec3 color)
+			{
+				int r = color.x * 255.0f;
+				int g = color.y * 255.0f;
+				int b = color.z * 255.0f;
+				int a = 255.0f;
 
 				m_Color = a << 24 | b << 16 | g << 8 | r;
 			}

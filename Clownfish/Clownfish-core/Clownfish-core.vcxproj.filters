@@ -303,6 +303,9 @@
     <ClCompile Include="examples\Layout.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="src\graphics\basiccolors.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ext\freetype\Include\ft2build.h">
@@ -454,6 +457,9 @@
     </ClInclude>
     <ClInclude Include="src\utils\stringutils.h">
       <Filter>Headerdateien\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\basiccolors.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

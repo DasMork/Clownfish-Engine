@@ -16,9 +16,16 @@ public:
 
 public:
 	Label(std::string text, float x, float y, Font* font, unsigned int color);
+	Label(std::string text, float x, float y, Font* font, maths::vec3 color);
+
 	Label(std::string text, float x, float y, unsigned int color);
+	Label(std::string text, float x, float y, maths::vec3 color);
+
 	Label(std::string text, float x, float y, const std::string& font, unsigned int color);
+	Label(std::string text, float x, float y, const std::string& font, maths::vec3 color);
+
 	Label(std::string text, float x, float y, const std::string& font, unsigned int size, unsigned int color);
+	Label(std::string text, float x, float y, const std::string& font, unsigned int size, maths::vec3 color);
 
 
 	void submit(Renderer2D* renderer) const override;
