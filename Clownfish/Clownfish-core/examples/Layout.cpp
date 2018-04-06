@@ -17,32 +17,65 @@ private:
 	Label* fps;
 	Label* ups;
 	BatchRenderer2D* renderer;
+
+
+
 public:
 	Game() {}
+
+
 
 	// On Begin
 	void init() override
 	{
-		window = createWindow("Game", 960, 540, false);
+		window = CFcreateWindow("Game", 960, 540, false);
+
 		renderer = new BatchRenderer2D();
 		layer = new Layer(renderer, new Shader("src/shaders/basic.vert", "src/shaders/basic.frag"), maths::mat4::othographic(-16, 16, -9.0f, 9.0f, -1.0f, 1.0f));
 
 
+<<<<<<< HEAD
 		fps = new Label("5000", -15.5f, 7.5f, "arial", 42, Color::Red);
 		ups = new Label("60", 14.0f, 7.5f, "arial", 42, Color::Red);
 		logo = new Sprite(-6, 0, 10, 8, "logo.png");
 		Sprite* wall = new Sprite(0, -3, 2, 6, Color::Orange);
 		wall->setColision(true);
+=======
+<<<<<<< HEAD
+		fps = new Label("5000", -15.5f, 7.5f, "mario", 42, 0xff0000ff);
+		ups = new Label("60", 14.0f, 7.5f, "arial", 42, 0xff0000ff);
 
+
+=======
+		fps = new Label("5000", -15.5f, 7.5f, "arial", 42, 0xff0000ff);
+		ups = new Label("60", 12.5f, 7.5f, "arial", 42, 0xff0000ff);
+>>>>>>> d207d7b80092bbd79ce859a2de0fa66a582564fd
+		logo = new Sprite(-6, 0, 10, 8, "logo.png");
+		Sprite* wall = new Sprite(0, -3, 2, 6, 0xff00ffff);
+
+>>>>>>> 7f285629770574945df20387d990d3876248db20
+
+		wall->setColision(true);
 		logo->setColision(true);
+<<<<<<< HEAD
 		layer->add(new Label("Welcome to", -9.5f, 5, "mario", 80, Color::Yellow));
 		layer->add(new Label("Clownfish!", -8, 3, "mario", 80, Color::Yellow));
 		AudioManager::add(new AudioClip("background", "zelda.wav"));
+=======
+>>>>>>> 7f285629770574945df20387d990d3876248db20
 
+
+<<<<<<< HEAD
+=======
+		layer->add(new Label("Welcome to    Clownfish!", -9.5f, 5, "mario", 80, 0xff00ffff));
+>>>>>>> d207d7b80092bbd79ce859a2de0fa66a582564fd
 		layer->add(wall);
 		layer->add(logo);
 		layer->add(fps);
 		layer->add(ups);
+
+
+		AudioManager::add(new AudioClip("background", "zelda.wav"));
 		AudioManager::get("background")->loop();
 	}
 
@@ -78,10 +111,11 @@ public:
 	void render() override
 	{
 		glClearColor(0, 0, 0.8f, 1);
+
 		layer->render();
 		AudioManager::update();
 	}
-	
+
 };
 
 

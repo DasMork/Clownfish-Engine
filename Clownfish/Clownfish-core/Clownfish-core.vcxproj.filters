@@ -308,9 +308,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ext\freetype\Include\ft2build.h">
-      <Filter>Headerdateien\ext\freetype</Filter>
-    </ClInclude>
     <ClInclude Include="ext\freetype\Include\config\ftconfig.h">
       <Filter>Headerdateien\ext\freetype</Filter>
     </ClInclude>
@@ -458,8 +455,13 @@
     <ClInclude Include="src\utils\stringutils.h">
       <Filter>Headerdateien\utils</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="src\graphics\basiccolors.h">
       <Filter>Headerdateien</Filter>
+=======
+    <ClInclude Include="ext\freetype\Include\ft2build.h">
+      <Filter>Headerdateien\ext\freetype</Filter>
+>>>>>>> 7f285629770574945df20387d990d3876248db20
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

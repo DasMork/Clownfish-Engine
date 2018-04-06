@@ -1,0 +1,9 @@
+﻿  Clownfish-core.lib(input.obj) : Es wurde ein mit /GL kompiliertes MSIL .netmodule oder module gefunden. Verknüpfung wird mit /LTCG erneut gestartet. Fügen Sie /LTCG zur Linkbefehlszeile hinzu, um die Linkerleistung zu erhöhen.
+LINK : warning LNK4075: /INCREMENTAL wird aufgrund der Angabe von /LTCG ignoriert.
+LINK : warning LNK4098: Standardbibliothek "LIBCMT" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
+  Code wird generiert.
+e:\github\clownfish-engine\clownfish\clownfish-core\src\maths\mat4.cpp(34): warning C4715: "clownfish::maths::mat4::identity": Nicht alle Codepfade geben einen Wert zur³ck.
+  Codegenerierung ist abgeschlossen.
+glew32s.lib(glew.obj) : warning LNK4099: PDB "vc120.pdb" wurde nicht mit "glew32s.lib(glew.obj)" oder an "E:\GitHub\Clownfish-Engine\Clownfish\Sandbox\Debug\vc120.pdb" gefunden; Objekt wird verkn³pft, als ob keine Debuginformationen vorhanden wõren.
+  Sandbox.vcxproj -> E:\GitHub\Clownfish-Engine\Clownfish\Sandbox\Debug\Sandbox.exe
+  Sandbox.vcxproj -> E:\GitHub\Clownfish-Engine\Clownfish\Sandbox\Debug\Sandbox.pdb (Partial PDB)

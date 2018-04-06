@@ -13,6 +13,7 @@ public:
 	std::string text;
 	maths::vec3& position;
 	float x, y;
+	float m_TextFieldSize = 1000;
 
 public:
 	Label(std::string text, float x, float y, Font* font, unsigned int color);
@@ -25,7 +26,11 @@ public:
 	Label(std::string text, float x, float y, const std::string& font, maths::vec3 color);
 
 	Label(std::string text, float x, float y, const std::string& font, unsigned int size, unsigned int color);
+<<<<<<< HEAD
 	Label(std::string text, float x, float y, const std::string& font, unsigned int size, maths::vec3 color);
+=======
+	Label(std::string text, float x, float y, float textfieldsize, const std::string& font, unsigned int color);
+>>>>>>> 7f285629770574945df20387d990d3876248db20
 
 
 	void submit(Renderer2D* renderer) const override;

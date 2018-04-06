@@ -1,4 +1,4 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(372,5): warning MSB8004: Das Intermediate-Verzeichnis endet nicht mit einem nachstehenden Schrägstrich. Der Schrägstrich wird in dieser Buildinstanz hinzugefügt, da er für die ordnungsgemäße Auswertung des Intermediate-Verzeichnisses erforderlich ist.
   bitwise.c
   framing.c
-  libogg.vcxproj -> C:\Users\Jannik\Documents\GitHub\Clownfish-Engine\Clownfish\Dependencies\libogg\bin\libogg.lib
+  libogg.vcxproj -> E:\GitHub\Clownfish-Engine\Clownfish\Dependencies\libogg\bin\libogg.lib
