@@ -34,8 +34,8 @@
   lpc.c
 ..\Dependencies\libvorbis\lib\lpc.c(114): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
   lsp.c
-e:\github\clownfish-engine\clownfish\dependencies\libvorbis\lib\lookup.c(31): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
-e:\github\clownfish-engine\clownfish\dependencies\libvorbis\lib\lookup.c(38): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\jannik\documents\github\clownfish-engine\clownfish\dependencies\libvorbis\lib\lookup.c(31): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\jannik\documents\github\clownfish-engine\clownfish\dependencies\libvorbis\lib\lookup.c(38): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
 ..\Dependencies\libvorbis\lib\lsp.c(101): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
 ..\Dependencies\libvorbis\lib\lsp.c(67): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
 ..\Dependencies\libvorbis\lib\lsp.c(351): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
@@ -148,11 +148,11 @@ e:\github\clownfish-engine\clownfish\dependencies\libvorbis\lib\lookup.c(38): wa
 ..\Dependencies\libvorbis\lib\tone.c(44): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
   Kompilieren...
   vorbisenc.c
-e:\github\clownfish-engine\clownfish\dependencies\libvorbis\lib\modes/psych_44.h(27): warning C4244: "Initialisierung": Konvertierung von "double" in "int", möglicher Datenverlust
-e:\github\clownfish-engine\clownfish\dependencies\libvorbis\lib\modes/psych_44.h(33): warning C4244: "Initialisierung": Konvertierung von "double" in "int", möglicher Datenverlust
-e:\github\clownfish-engine\clownfish\dependencies\libvorbis\lib\modes/psych_44.h(39): warning C4244: "Initialisierung": Konvertierung von "double" in "int", möglicher Datenverlust
-e:\github\clownfish-engine\clownfish\dependencies\libvorbis\lib\modes/psych_44.h(45): warning C4244: "Initialisierung": Konvertierung von "double" in "int", möglicher Datenverlust
-e:\github\clownfish-engine\clownfish\dependencies\libvorbis\lib\modes/psych_44.h(51): warning C4244: "Initialisierung": Konvertierung von "double" in "int", möglicher Datenverlust
+c:\users\jannik\documents\github\clownfish-engine\clownfish\dependencies\libvorbis\lib\modes/psych_44.h(27): warning C4244: "Initialisierung": Konvertierung von "double" in "int", möglicher Datenverlust
+c:\users\jannik\documents\github\clownfish-engine\clownfish\dependencies\libvorbis\lib\modes/psych_44.h(33): warning C4244: "Initialisierung": Konvertierung von "double" in "int", möglicher Datenverlust
+c:\users\jannik\documents\github\clownfish-engine\clownfish\dependencies\libvorbis\lib\modes/psych_44.h(39): warning C4244: "Initialisierung": Konvertierung von "double" in "int", möglicher Datenverlust
+c:\users\jannik\documents\github\clownfish-engine\clownfish\dependencies\libvorbis\lib\modes/psych_44.h(45): warning C4244: "Initialisierung": Konvertierung von "double" in "int", möglicher Datenverlust
+c:\users\jannik\documents\github\clownfish-engine\clownfish\dependencies\libvorbis\lib\modes/psych_44.h(51): warning C4244: "Initialisierung": Konvertierung von "double" in "int", möglicher Datenverlust
 ..\Dependencies\libvorbis\lib\vorbisenc.c(203): warning C4244: "Initialisierung": Konvertierung von "double" in "int", möglicher Datenverlust
 ..\Dependencies\libvorbis\lib\vorbisenc.c(259): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
 ..\Dependencies\libvorbis\lib\vorbisenc.c(260): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
@@ -214,4 +214,4 @@ e:\github\clownfish-engine\clownfish\dependencies\libvorbis\lib\modes/psych_44.h
 ..\Dependencies\libvorbis\lib\vorbisenc.c(1082): warning C4244: "=": Konvertierung von "double" in "long", möglicher Datenverlust
   vorbisfile.c
   window.c
-  libvorbis.vcxproj -> E:\GitHub\Clownfish-Engine\Clownfish\Dependencies\libvorbis\bin\new\libvorbis.lib
+  libvorbis.vcxproj -> C:\Users\Jannik\Documents\GitHub\Clownfish-Engine\Clownfish\Dependencies\libvorbis\bin\libvorbis.lib

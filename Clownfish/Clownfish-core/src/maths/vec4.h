@@ -20,15 +20,12 @@ namespace clownfish {
 			vec4& add(const vec4& other);
 			vec4& subtract(const vec4& other);
 			vec4& multiply(const vec4& other);
-			vec4& multiply(const float& other);
-
 			vec4& divide(const vec4& other);
 
 
 			friend vec4 operator+(vec4 left, const vec4& right);
 			friend vec4 operator-(vec4 left, const vec4& right);
 			friend vec4 operator*(vec4 left, const vec4& right);
-			friend vec4 operator*(vec4 left, const float& right);
 			friend vec4 operator/(vec4 left, const vec4& right);
 
 

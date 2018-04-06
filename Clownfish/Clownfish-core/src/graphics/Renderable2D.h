@@ -31,6 +31,7 @@ namespace clownfish {
 			maths::vec3 m_Translation;
 			bool m_HasCollision = false;
 			bool m_HasMoved = false;
+
 		protected:
 			Renderable2D()
 			{

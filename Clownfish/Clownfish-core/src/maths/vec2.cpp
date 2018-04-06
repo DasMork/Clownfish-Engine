@@ -36,13 +36,6 @@ namespace clownfish {
 
 			return *this;
 		}
-		vec2& vec2::multiply(const float& other)
-		{
-			x *= other;
-			y *= other;
-
-			return *this;
-		}
 		vec2& vec2::divide(const vec2& other)
 		{
 			x /= other.x;
@@ -62,11 +55,6 @@ namespace clownfish {
 
 		}
 		vec2 operator*(vec2 left, const vec2& right)
-		{
-			return left.multiply(right);
-
-		}
-		vec2 operator*(vec2 left, const float& right)
 		{
 			return left.multiply(right);
 

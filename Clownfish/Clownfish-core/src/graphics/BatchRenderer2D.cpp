@@ -131,7 +131,7 @@ namespace clownfish {
 			m_IndexCount += 6;
 		}
 
-		void BatchRenderer2D::drawString(const std::string& text, float textfieldsize, const Font& font, const maths::vec3& position, unsigned int color)
+		void BatchRenderer2D::drawString(const std::string& text, const Font& font, const maths::vec3& position, unsigned int color)
 		{
 
 			using namespace ftgl;
@@ -169,7 +169,6 @@ namespace clownfish {
 			float scaleY = 540 / 18;
 
 			float x = position.x;
-			float y = position.y;
 
 			for (int i = 0; i < text.length(); i++)
 			{
@@ -183,7 +182,7 @@ namespace clownfish {
 						float kerning = texture_glyph_get_kerning(glyph, text[i - 1]);
 					}
 					float x0 = x + glyph->offset_x / scaleX;
-					float y0 = y + glyph->offset_y / scaleY;
+					float y0 = position.y + glyph->offset_y / scaleY;
 
 					float x1 = x0 + glyph->width / scaleX;
 					float y1 = y0 - glyph->height / scaleY;
@@ -221,17 +220,6 @@ namespace clownfish {
 					m_IndexCount += 6;
 
 					x += glyph->advance_x / scaleX;
-			
-					if(x > 14)
-					{
-					x = position.x;
-					y -= 2;
-
-					}
-
-
-
-
 				}
 			}
 		}

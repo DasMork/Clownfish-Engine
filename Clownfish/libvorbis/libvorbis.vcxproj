@@ -71,12 +71,12 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(SolutionDir)Dependencies\libvorbis\include;$(SolutionDir)Dependencies\libogg\include;$(IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)Dependencies\libvorbis\bin\new\</OutDir>
+    <OutDir>$(SolutionDir)Dependencies\libvorbis\bin\</OutDir>
     <IntDir>$(SolutionDir)Dependencies\libvorbis\bin\intermediate</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(SolutionDir)Dependencies\libvorbis\include;$(SolutionDir)Dependencies\libogg\include;$(IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)Dependencies\libvorbis\bin\new\</OutDir>
+    <OutDir>$(SolutionDir)Dependencies\libvorbis\bin\</OutDir>
     <IntDir>$(SolutionDir)Dependencies\libvorbis\bin\intermediate</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -87,7 +87,6 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -100,7 +99,6 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

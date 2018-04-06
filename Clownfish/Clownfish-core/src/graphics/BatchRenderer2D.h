@@ -48,7 +48,7 @@ public:
 
 	virtual void submit(const Renderable2D* renderable) override;
 	virtual void flush() override;
-	virtual void drawString(const std::string& text, float textfieldsize, const Font& font, const maths::vec3& position, unsigned int color)override;
+	virtual void drawString(const std::string& text, const Font& font, const maths::vec3& position, unsigned int color)override;
 
 private:
 	void init();

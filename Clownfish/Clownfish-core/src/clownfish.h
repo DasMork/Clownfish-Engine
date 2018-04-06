@@ -53,7 +53,7 @@ namespace clownfish
 			delete m_Timer;
 			delete m_Window;
 		}
-		graphics::Window* CFcreateWindow(const char* name, int width, int height, bool fullscreen = false)
+		graphics::Window* createWindow(const char* name, int width, int height, bool fullscreen = false)
 		{
 			m_Window = new graphics::Window(name, width, height, fullscreen);
 			return m_Window;

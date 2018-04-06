@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Clownfish-core", "Clownfish-core\Clownfish-core.vcxproj", "{A44A0198-13F1-410A-99CE-05BC3DE56A3B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libvorbis", "libvorbis\libvorbis.vcxproj", "{537A4AFE-F092-4EDF-BC40-5839C560BC95}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libogg", "libogg\libogg.vcxproj", "{57E66BE4-B8FA-40C6-A98E-41FB37595EE3}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{D396BA33-5E03-479D-B406-634D02DFD5E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,19 +41,8 @@ Global
 		{57E66BE4-B8FA-40C6-A98E-41FB37595EE3}.Release|x64.Build.0 = Release|x64
 		{57E66BE4-B8FA-40C6-A98E-41FB37595EE3}.Release|x86.ActiveCfg = Release|Win32
 		{57E66BE4-B8FA-40C6-A98E-41FB37595EE3}.Release|x86.Build.0 = Release|Win32
-		{D396BA33-5E03-479D-B406-634D02DFD5E5}.Debug|x64.ActiveCfg = Debug|x64
-		{D396BA33-5E03-479D-B406-634D02DFD5E5}.Debug|x64.Build.0 = Debug|x64
-		{D396BA33-5E03-479D-B406-634D02DFD5E5}.Debug|x86.ActiveCfg = Debug|Win32
-		{D396BA33-5E03-479D-B406-634D02DFD5E5}.Debug|x86.Build.0 = Debug|Win32
-		{D396BA33-5E03-479D-B406-634D02DFD5E5}.Release|x64.ActiveCfg = Release|x64
-		{D396BA33-5E03-479D-B406-634D02DFD5E5}.Release|x64.Build.0 = Release|x64
-		{D396BA33-5E03-479D-B406-634D02DFD5E5}.Release|x86.ActiveCfg = Release|Win32
-		{D396BA33-5E03-479D-B406-634D02DFD5E5}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {55E90658-3AE5-4FFE-B54E-5727C1EBEE5E}
 	EndGlobalSection
 EndGlobal
