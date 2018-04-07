@@ -8,7 +8,7 @@ namespace clownfish {
 		Sprite::Sprite(float x, float y, float width, float height, unsigned int color)
 			: Renderable2D(maths::vec3(x, y, 0), maths::vec2(width, height), color)
 		{
-			m_Texture = nullptr;
+			m_Texture = nullptr; 
 		}
 		Sprite::Sprite(float x, float y, float width, float height, maths::vec3 color)
 			: Renderable2D(maths::vec3(x, y, 0), maths::vec2(width, height), 0xffffffff)

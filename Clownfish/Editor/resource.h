@@ -5,6 +5,9 @@
 
 #define IDS_APP_TITLE			103
 
+#define IDM_START_ENGINE		900
+
+
 #define IDR_MAINFRAME			128
 #define IDD_EDITOR_DIALOG	102
 #define IDD_ABOUTBOX			103

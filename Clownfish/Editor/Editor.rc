@@ -39,9 +39,10 @@ IDC_EDITOR MENU
 BEGIN
     POPUP "&Datei"
     BEGIN
-        MENUITEM "&Beenden",                IDM_EXIT
+		MENUITEM "&Start Engine", IDM_START_ENGINE
+        MENUITEM "&Quit",                IDM_EXIT
     END
-    POPUP "&Hilfe"
+    POPUP "&Help"
     BEGIN
         MENUITEM "&Info...",           IDM_ABOUT
     END
@@ -67,13 +68,13 @@ END
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Informationen zu Editor"
+CAPTION "Informationen zu Clownfish-Editor"
 FONT 8, "MS Shell Dlg"
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
-    LTEXT           "Editor, Version 1.0",IDC_STATIC,42,14,114,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2018",IDC_STATIC,42,26,114,8
-    DEFPUSHBUTTON   "OK",IDOK,113,41,50,14,WS_GROUP
+    LTEXT           "Clonfish-Editor, Version 1.0",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright Jannik Lietz(C) 2018",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "GOIL",IDOK,113,41,50,14,WS_GROUP
 END
 
 /////////////////////////////////////////////////////////////////////////////

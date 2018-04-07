@@ -25,6 +25,7 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
+
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
                      _In_ LPWSTR    lpCmdLine,
@@ -69,34 +70,48 @@ class Game : public Clownfish
 
 private:
 	Window* window;
-	BatchRenderer2D* renderer;
-	Layer* layer;
 	Sprite* logo;
-
-
+	Layer* layer;
+	Label* fps;
+	Label* ups;
+	BatchRenderer2D* renderer;
 public:
 	Game() {}
 
 	// On Begin
 	void init() override
 	{
-		window = createWindow("Sandbox", 960, 540, false);
 
+
+		window = createWindow("Game", 960, 540, false);
 		renderer = new BatchRenderer2D();
 		layer = new Layer(renderer, new Shader("shaders/basic.vert", "shaders/basic.frag"), maths::mat4::othographic(-16, 16, -9.0f, 9.0f, -1.0f, 1.0f));
 
-		logo = new Sprite(0, 0, 10, 8, "logo.png");
+
+		fps = new Label("5000", -15.5f, 7.5f, new Font("mario", "fonts/mario.ttf", 42), Color::Red);
+		ups = new Label("60", 14.0f, 7.5f, new Font("mario", "fonts/mario.ttf", 42), Color::Red);
+		logo = new Sprite(-6, 0, 10, 8, "logo.png");
+		Sprite* wall = new Sprite(0, -3, 2, 6, Color::Orange);
+		wall->setColision(true);
+
+		logo->setColision(true);
+		layer->add(new Label("Welcome to", -9.5f, 5, new Font("mario", "fonts/mario.ttf", 80), Color::Yellow));
+		layer->add(new Label("Clownfish!", -8, 3, new Font("mario", "fonts/mario.ttf", 80), Color::Yellow));
+		AudioManager::add(new AudioClip("background", "zelda.wav"));
+
+		layer->add(wall);
 		layer->add(logo);
-		Font* font = new Font("arial", "fonts/arial", 45);
-		layer->add(new Label("Janik stinkt!", 0, 5, FontManager::get("arial"), Color::YellowGreen));
-
-
+		layer->add(fps);
+		layer->add(ups);
+		AudioManager::get("background")->loop();
 	}
 
 	// Once per Second
 	void tick() override
 	{
-
+		std::cout << std::to_string(getFPS()) << " , " << std::to_string(getUPS()) << std::endl;
+		fps->text = std::to_string(getFPS());
+		ups->text = std::to_string(getUPS());
 
 
 	}
@@ -105,7 +120,6 @@ public:
 	//60 Times per Second
 	void update() override
 	{
-
 		float x = Input::GetAxis(HORIZONTAL);
 		float y = Input::GetAxis(VERTICAL);
 
@@ -117,16 +131,18 @@ public:
 
 		logo->translate(vec3(x * 0.5f, y * 0.5f, 0));
 
+
 	}
 
 	//As fast as possible
 	void render() override
 	{
+		glClearColor(0, 0, 0.8f, 1);
 		layer->render();
+		AudioManager::update();
 	}
 
 };
-
 //
 //  FUNKTION: MyRegisterClass()
 //
@@ -191,6 +207,13 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_DESTROY  - Ausgeben einer Beendenmeldung und zurückkehren
 //
 //
+void StartGame()
+{
+	Game game;
+	game.start();
+
+}
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
@@ -207,6 +230,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             case IDM_EXIT:
                 DestroyWindow(hWnd);
                 break;
+			case IDM_START_ENGINE:
+				StartGame();
+
             default:
                 return DefWindowProc(hWnd, message, wParam, lParam);
             }
@@ -229,6 +255,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     return 0;
 }
 
+
+
+
 // Meldungshandler für Infofeld.
 INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -241,8 +270,7 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_COMMAND:
         if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
         {
-			Game game;
-			game.start();
+
             EndDialog(hDlg, LOWORD(wParam));
             return (INT_PTR)TRUE;
         }
