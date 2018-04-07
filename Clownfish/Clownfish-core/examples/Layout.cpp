@@ -1,5 +1,4 @@
 #include "..\src\clownfish.h"
-#include "..\src\graphics\basiccolors.h"
 
 using namespace clownfish;
 using namespace graphics;
