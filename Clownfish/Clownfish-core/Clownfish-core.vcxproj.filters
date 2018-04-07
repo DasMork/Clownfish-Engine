@@ -273,9 +273,6 @@
     <ClCompile Include="src\graphics\font.cpp">
       <Filter>Quelldateien\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\fontmanager.cpp">
-      <Filter>Quelldateien\graphics</Filter>
-    </ClCompile>
     <ClCompile Include="ext\gorilla-audio\ga.c">
       <Filter>Quelldateien\ext\gorilla-audio</Filter>
     </ClCompile>
@@ -300,10 +297,10 @@
     <ClCompile Include="src\audio\audiomanager.cpp">
       <Filter>Quelldateien\audio</Filter>
     </ClCompile>
-    <ClCompile Include="examples\Layout.cpp">
+    <ClCompile Include="src\graphics\basiccolors.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\basiccolors.cpp">
+    <ClCompile Include="src\graphics\fontmanager.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -422,9 +419,6 @@
     <ClInclude Include="src\graphics\font.h">
       <Filter>Headerdateien\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\fontmanager.h">
-      <Filter>Headerdateien\graphics</Filter>
-    </ClInclude>
     <ClInclude Include="ext\gorilla-audio\ga.h">
       <Filter>Headerdateien\ext\gorilla-audio</Filter>
     </ClInclude>
@@ -459,6 +453,9 @@
       <Filter>Headerdateien\utils</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\basiccolors.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\fontmanager.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

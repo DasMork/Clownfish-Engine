@@ -1,9 +1,140 @@
-﻿  libvorbis.lib(vorbisfile.obj) : Es wurde ein mit /GL kompiliertes MSIL .netmodule oder module gefunden. Verknüpfung wird mit /LTCG erneut gestartet. Fügen Sie /LTCG zur Linkbefehlszeile hinzu, um die Linkerleistung zu erhöhen.
-LINK : warning LNK4075: /INCREMENTAL wird aufgrund der Angabe von /LTCG ignoriert.
-LINK : warning LNK4098: Standardbibliothek "MSVCRT" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
-LINK : warning LNK4098: Standardbibliothek "LIBCMT" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
-  Code wird generiert.
-  Codegenerierung ist abgeschlossen.
-glew32s.lib(glew.obj) : warning LNK4099: PDB "vc120.pdb" wurde nicht mit "glew32s.lib(glew.obj)" oder an "E:\GitHub\Clownfish-Engine\Clownfish\vc120.pdb" gefunden; Objekt wird verkn³pft, als ob keine Debuginformationen vorhanden wõren.
-  Clownfish-core.vcxproj -> E:\GitHub\Clownfish-Engine\Clownfish\Clownfish-core.exe
-  Clownfish-core.vcxproj -> E:\GitHub\Clownfish-Engine\Clownfish\Clownfish-core.pdb (Partial PDB)
+﻿  platform.c
+  texture-atlas.c
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\ext\freetype-gl\texture-atlas.c(132): warning C4090: "=": Unterschiedliche "const"-Qualifizierer
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\ext\freetype-gl\texture-atlas.c(237): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+  texture-font.c
+  vector.c
+  autofit.c
+  ftbase.c
+  ftbbox.c
+  ftbitmap.c
+  ftdebug.c
+  ftfstype.c
+  ftgasp.c
+  ftglyph.c
+  ftgxval.c
+  ftinit.c
+  ftlcdfil.c
+  ftmm.c
+  ftotval.c
+  ftpatent.c
+  ftpfr.c
+  ftstroke.c
+  Code wird generiert...
+  Kompilieren...
+  ftsynth.c
+  ftsystem.c
+  fttype1.c
+  ftwinfnt.c
+  ftxf86.c
+  bdf.c
+  ftcache.c
+  cff.c
+  type1cid.c
+  ftgzip.c
+  ftlzw.c
+  pcf.c
+  pfr.c
+  psaux.c
+  pshinter.c
+  psmodule.c
+  raster.c
+  sfnt.c
+  smooth.c
+  truetype.c
+  Code wird generiert...
+  Kompilieren...
+  type1.c
+  type42.c
+  winfnt.c
+  gc_common.c
+  gc_thread.c
+  ga_openal.c
+  ga.c
+  gau.c
+  ga_stream.c
+  Code wird generiert...
+  audioclip.cpp
+  audiomanager.cpp
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\audio\audiomanager.cpp(36): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+  basiccolors.cpp
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\maths\maths_func.h(11): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
+  font.cpp
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\font.cpp(10): warning C4244: "Argument": Konvertierung von "unsigned int" in "const float", möglicher Datenverlust
+  BatchRenderer2D.cpp
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\maths\maths_func.h(11): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(80): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(81): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(82): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(83): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(89): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(90): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(91): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(92): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\batchrenderer2d.cpp(80): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\batchrenderer2d.cpp(145): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\batchrenderer2d.cpp(173): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\batchrenderer2d.cpp(237): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+  buffer.cpp
+  indexbuffer.cpp
+  vertexarray.cpp
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\buffers\vertexarray.cpp(14): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+  label.cpp
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\maths\maths_func.h(11): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(80): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(81): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(82): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(83): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(89): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(90): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(91): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(92): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+  group.cpp
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\maths\maths_func.h(11): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(80): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(81): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(82): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(83): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(89): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(90): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(91): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(92): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\layers\group.cpp(12): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+  layer.cpp
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\maths\maths_func.h(11): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(80): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(81): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(82): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(83): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(89): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(90): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(91): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(92): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\layers\layer.cpp(29): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\layers\layer.cpp(55): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\layers\layer.cpp(63): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+  shader.cpp
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\maths\maths_func.h(11): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
+  sprite.cpp
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\maths\maths_func.h(11): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(80): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(81): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(82): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(83): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(89): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(90): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(91): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\graphics\renderable2d.h(92): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+  texture.cpp
+  window.cpp
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\input\input.h(51): warning C4091: "static ": Ignoriert auf der linken Seite von "clownfish::input::Input", wenn keine Variable deklariert wurde
+  input.cpp
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\input\input.h(51): warning C4091: "static ": Ignoriert auf der linken Seite von "clownfish::input::Input", wenn keine Variable deklariert wurde
+  mat4.cpp
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\maths\maths_func.h(11): warning C4244: "return": Konvertierung von "double" in "float", möglicher Datenverlust
+  vec2.cpp
+  vec3.cpp
+  vec4.cpp
+  Code wird generiert...
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\maths\mat4.cpp(34): warning C4715: "clownfish::maths::mat4::identity": Nicht alle Codepfade geben einen Wert zurück.
+  Clownfish-core.vcxproj -> C:\Users\Lietz.Jannik\Documents\GitHub\Clownfish-Engine\Clownfish\Clownfish-core.lib

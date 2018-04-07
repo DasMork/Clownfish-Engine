@@ -3,6 +3,8 @@
 
 #include "fontmanager.h"
 #include "..\audio\audiomanager.h"
+
+
 namespace clownfish {
 	namespace graphics {
 
@@ -154,7 +156,8 @@ namespace clownfish {
 			FontManager::add(new Font("mario", "fonts/mario.ttf", 30));
 			FontManager::add(new Font("Freedoka", "fonts/FredokaOne-Regular.ttf", 30));
 
-		}
 
+
+		}
 	}
 }

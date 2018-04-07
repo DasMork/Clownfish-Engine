@@ -1,2 +1,4 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(373,5): warning MSB8004: Das Output-Verzeichnis endet nicht mit einem nachstehenden Schrägstrich. Der Schrägstrich wird in dieser Buildinstanz hinzugefügt, da er für die ordnungsgemäße Auswertung des Output-Verzeichnisses erforderlich ist.
-  Clownfish-core.vcxproj -> E:\GitHub\Clownfish-Engine\Clownfish\Clownfish-core\libs\Clownfish-core.lib
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Das Output-Verzeichnis endet nicht mit einem nachstehenden Schrägstrich. Der Schrägstrich wird in dieser Buildinstanz hinzugefügt, da er für die ordnungsgemäße Auswertung des Output-Verzeichnisses erforderlich ist.
+  window.cpp
+c:\users\lietz.jannik\documents\github\clownfish-engine\clownfish\clownfish-core\src\input\input.h(51): warning C4091: "static ": Ignoriert auf der linken Seite von "clownfish::input::Input", wenn keine Variable deklariert wurde
+  Clownfish-core.vcxproj -> C:\Users\Lietz.Jannik\Documents\GitHub\Clownfish-Engine\Clownfish\Clownfish-core\libs\Clownfish-core.lib
