@@ -1,2 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+Clownfish/Clownfish-core/ext/* linguist-vendored
+Clownfish/Dependencies/* linguist-vendored
+
+*.h linguist-language=C++
